@@ -1,90 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ujjwal Tiwari | Aspiring Data Scientist</title>
-    <meta name="description" content="Portfolio of Ujjwal Tiwari – Aspiring Data Scientist, Electronics & Computer Science Engineer, and IoT Enthusiast.">
-    <meta name="keywords" content="Data Scientist, Python, Machine Learning, Arduino, IoT, Ujjwal Tiwari, Mumbai Engineering">
-    
+    <title>Ujjwal Suneel Tiwari | Aspiring Data Scientist</title>
+
+    <meta name="description"
+        content="Portfolio of Ujjwal Suneel Tiwari – Aspiring Data Scientist, Electronics & Computer Science Engineer.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicons/favicon.svg">
+
+    <!-- Bootstrap & Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; color: #343a40; scroll-behavior: smooth; }
-        .navbar { background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,.1); }
-        .section { padding: 80px 0; }
-        .hero { 
-            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1920');
-            background-size: cover; text-align: center; min-height: 100vh; display: flex; align-items: center; 
+        :root {
+            --primary-blue: #0d6efd;
+            --dark-bg: #212529;
+            --light-bg: #f8f9fa;
         }
-        .hero h1 { font-size: 3.5rem; font-weight: 700; color: #0d6efd; }
-        .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 5px solid #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .section-title { text-align: center; margin-bottom: 50px; font-weight: 700; position: relative; }
-        .section-title::after { content: ''; width: 60px; height: 4px; background: #0d6efd; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
-        .card { border: none; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; height: 100%; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .badge-tech { background-color: #e7f1ff; color: #0d6efd; font-weight: 600; margin-right: 5px; margin-bottom: 5px; display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; }
-        footer { background-color: #212529; color: white; padding: 40px 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            object-fit: cover;
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            height: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            background: #fff;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Typography & Badges */
+        .section-title {
+            font-weight: 800;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--primary-blue);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .badge-tech {
+            background: #e7f1ff;
+            color: #0d6efd;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 4px;
+            display: inline-block;
+        }
+
+        /* Timeline for Education/Experience */
+        .timeline-item {
+            padding-left: 20px;
+            border-left: 3px solid var(--primary-blue);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--primary-blue);
+            position: absolute;
+            left: -7.5px;
+            top: 5px;
+            border-radius: 50%;
+        }
+
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 50px 0;
+        }
     </style>
 </head>
+
 <body data-bs-spy="scroll" data-bs-target="#navbar">
 
+    <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">UT</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <a class="navbar-brand fw-bold text-primary" href="#">UT.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto fw-medium">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
-            <img src="https://placehold.co/180x180/0d6efd/ffffff?text=UT" alt="Ujjwal Tiwari" class="profile-img">
-            <h1>Hi, I'm Ujjwal Tiwari</h1>
-            <p class="lead fw-bold text-dark">Aspiring Data Scientist & Electronics Engineer</p>
-            <p class="text-muted mx-auto" style="max-width: 700px;">Building data-driven solutions across AI, ML, and Embedded Systems. Turning complex hardware data into actionable software insights.</p>
-            <div class="mt-4">
-                <a href="#contact" class="btn btn-primary btn-lg px-4 me-2">Get In Touch</a>
-                <a href="#" class="btn btn-outline-primary btn-lg px-4"><i class="fas fa-download me-2"></i>Resume</a>
-            </div>
-            <div class="mt-4 fs-3">
-                <a href="https://linkedin.com" class="text-dark me-3"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com" class="text-dark me-3"><i class="fab fa-github"></i></a>
-                <a href="mailto:email@example.com" class="text-dark"><i class="fas fa-envelope"></i></a>
+        <div class="container text-center">
+            <!-- Placeholder for profile image -->
+            <img src="https://ui-avatars.com/api/?name=Ujjwal+Tiwari&background=0D6EFD&color=fff&size=256"
+                alt="Ujjwal Tiwari" class="profile-img mb-4">
+            <h1 class="display-3 fw-bold mb-3">Ujjwal Suneel Tiwari</h1>
+            <h2 class="h3 text-primary mb-3">Aspiring Data Scientist</h2>
+            <p class="lead text-muted mx-auto mb-5" style="max-width: 700px;">
+                Electronics & Computer Science Engineering student skilled in logical reasoning, data interpretation,
+                and problem-solving. Aspiring to build AI and ML applications that bridge software and hardware.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#contact" class="btn btn-primary btn-lg px-5 shadow-sm">Contact Me</a>
+                <a href="https://github.com/Knight6azer" target="_blank" class="btn btn-dark btn-lg px-4"><i
+                        class="fab fa-github me-2"></i>GitHub</a>
+                <a href="https://www.linkedin.com/in/ujjwal-tiwari-6a55122a7" target="_blank"
+                    class="btn btn-outline-primary btn-lg px-4"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="section">
+    <!-- About / Education Section -->
+    <section id="about" class="section bg-white">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-5 mb-4">
-                    <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=600" class="img-fluid rounded-4 shadow" alt="Engineering">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title text-start mb-4">About Me</h2>
+                    <p class="lead mb-4">
+                        I am a final year <strong>Electronics & Computer Science Engineering</strong> student at Shree
+                        L.R. Tiwari College of Engineering (2023-2027).
+                    </p>
+                    <p class="text-muted mb-4">
+                        With hands-on experience in Data Analysis, Python, and Embedded Systems, I specialize in
+                        creating solutions that matter. I have strong leadership abilities, currently serving as a
+                        Co-Head of the R&D Cell, where I lead innovative tech solutions.
+                    </p>
+
+                    <h4 class="fw-bold mb-3"><i class="fas fa-graduation-cap text-primary me-2"></i>Education</h4>
+                    <div class="timeline-item">
+                        <h5 class="fw-bold">Bachelor of Engineering in Electronics & Computer Science</h5>
+                        <p class="text-muted mb-0">Shree L.R. Tiwari College of Engineering | 2023 - 2027</p>
+                        <small class="text-primary">Relevant Courses: Data Structures, OOPs, Embedded Systems, Computer
+                            Networks</small>
+                    </div>
+                    <div class="timeline-item">
+                        <h5 class="fw-bold">Secondary & Higher Secondary Education</h5>
+                        <p class="text-muted mb-0">Maharashtra Board</p>
+                        <small>HSC (Feb 2023) | SSC (Mar 2021)</small>
+                    </div>
                 </div>
-                <div class="col-md-7">
-                    <h2 class="fw-bold mb-4">About Me</h2>
-                    <p>I am an <strong>Electronics & Computer Science Engineering</strong> student (2023-2027) at Shree L.R. Tiwari College of Engineering. I specialize in bridging the gap between hardware and intelligence.</p>
-                    <p>With a strong foundation in <strong>Python, ML, and Embedded Systems</strong>, I enjoy extracting insights from raw data and building predictive models. Currently serving as <strong>Co-Head of the R&D Cell</strong>, I lead teams in creating innovative tech solutions[cite: 4, 41].</p>
-                    <div class="row mt-4">
-                        <div class="col-sm-6">
-                            <p><strong>Education:</strong> B.E. in Electronics & CS </p>
-                            <p><strong>Location:</strong> Mumbai, India </p>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="p-4 border rounded-4 text-center bg-light h-100">
+                                <i class="fas fa-code fa-2x text-primary mb-3"></i>
+                                <h5 class="fw-bold">Development</h5>
+                                <p class="small text-muted mb-0">Python, C, C++, SQL</p>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <p><strong>Interests:</strong> AI, ML, IoT, R&D </p>
-                            <p><strong>Status:</strong> Open to Internships</p>
+                        <div class="col-6">
+                            <div class="p-4 border rounded-4 text-center bg-light h-100">
+                                <i class="fas fa-chart-bar fa-2x text-success mb-3"></i>
+                                <h5 class="fw-bold">Data Science</h5>
+                                <p class="small text-muted mb-0">Pandas, NumPy, Matplotlib</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 border rounded-4 text-center bg-light h-100">
+                                <i class="fas fa-microchip fa-2x text-warning mb-3"></i>
+                                <h5 class="fw-bold">Embedded</h5>
+                                <p class="small text-muted mb-0">Arduino, RPi, IoT</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 border rounded-4 text-center bg-light h-100">
+                                <i class="fas fa-users fa-2x text-info mb-3"></i>
+                                <h5 class="fw-bold">Leadership</h5>
+                                <p class="small text-muted mb-0">Team Management, R&D Cell</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -92,135 +248,326 @@
         </div>
     </section>
 
-    <section id="experience" class="section bg-light">
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card p-5 shadow-sm">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <h5 class="fw-bold text-primary mb-3">Programming</h5>
+                                <div>
+                                    <span class="badge-tech">Python</span>
+                                    <span class="badge-tech">C</span>
+                                    <span class="badge-tech">C++</span>
+                                    <span class="badge-tech">SQL</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h5 class="fw-bold text-success mb-3">Data Science</h5>
+                                <div>
+                                    <span class="badge-tech">NumPy</span>
+                                    <span class="badge-tech">Pandas</span>
+                                    <span class="badge-tech">Matplotlib</span>
+                                    <span class="badge-tech">Excel</span>
+                                    <span class="badge-tech">Machine Learning Basics</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h5 class="fw-bold text-danger mb-3">Embedded Systems</h5>
+                                <div>
+                                    <span class="badge-tech">Arduino</span>
+                                    <span class="badge-tech">Raspberry Pi</span>
+                                    <span class="badge-tech">Circuit Simulation</span>
+                                    <span class="badge-tech">TinkerCad</span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="my-4">
+                        <div class="text-center">
+                            <h5 class="fw-bold text-dark mb-3">Soft Skills</h5>
+                            <span class="badge bg-secondary me-2">Logical Reasoning</span>
+                            <span class="badge bg-secondary me-2">Problem Solving</span>
+                            <span class="badge bg-secondary me-2">Team Leadership</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section bg-white">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card p-4">
-                        <h5 class="fw-bold text-primary">Data Analysis Intern</h5>
-                        <p class="small text-muted mb-2">Python & SQL Focus</p>
-                        <p class="card-text">Collected and cleaned data using Pandas. Explored ML basics to generate actionable business insights.</p>
+            <div class="row g-4 justify-content-center">
+
+                <!-- Internship 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 p-4 border-top border-4 border-primary">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Data Analysis Internship</h5>
+                            <p class="card-subtitle text-muted mb-3">Intern</p>
+                            <ul class="list-unstyled small text-muted">
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Collected,
+                                    cleaned, and visualized data using Python (Pandas, Matplotlib) and SQL.</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Explored machine
+                                    learning basics to generate actionable insights.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card p-4 border-primary">
-                        <h5 class="fw-bold text-primary">Embedded Systems Intern</h5>
-                        <p class="small text-muted mb-2">Circuit Wizard</p>
-                        <p class="card-text">Simulated IoT solutions and reduced system error rates by 15% through hardware-software optimization.</p>
+
+                <!-- Internship 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 p-4 border-top border-4 border-success">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Embedded Systems Internship</h5>
+                            <div class="badge bg-success mb-2">Circuit Wizard</div>
+                            <ul class="list-unstyled small text-muted">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Designed and
+                                    simulated electronic circuits, microcontrollers, and IoT-based solutions.</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Debugged and
+                                    optimized hardware-software integration using oscilloscopes and multimeters.</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Reduced system
+                                    error rates by <strong>15%</strong> during prototype testing.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card p-4">
-                        <h5 class="fw-bold text-primary">Python Intern</h5>
-                        <p class="small text-muted mb-2">Script Automation</p>
-                        <p class="card-text">Developed core Python scripts to automate tasks and implemented data structures in mini-projects.</p>
+
+                <!-- Internship 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 p-4 border-top border-4 border-warning">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Python Internship</h5>
+                            <p class="card-subtitle text-muted mb-3">Intern</p>
+                            <ul class="list-unstyled small text-muted">
+                                <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i>Developed core
+                                    Python scripts and implemented in mini-projects to automate simple tasks.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="projects" class="section">
+    <!-- Projects Section -->
+    <section id="projects" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Key Projects</h2>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                        <img src="https://placehold.co/400x250/0d6efd/ffffff?text=Acid+Rain+Analysis" class="card-img-top" alt="Project 1">
+
+                <!-- Project 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="fw-bold">Acid Rain Data Analysis</h5>
-                            <p class="small text-muted"><strong>Problem:</strong> Predicting environmental trends.<br><strong>Work:</strong> Used Pandas and Matplotlib for predictive modeling.</p>
-                            <div><span class="badge-tech">Python</span><span class="badge-tech">ML Basics</span><span class="badge-tech">NumPy</span></div>
-                            <a href="#" class="btn btn-sm btn-outline-primary mt-3">View Code</a>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title fw-bold m-0">Smart Home Security System</h5>
+                                <i class="fas fa-shield-alt fa-2x text-primary"></i>
+                            </div>
+                            <p class="card-text text-muted">Arduino-based IoT device with sensors for home security
+                                monitoring.</p>
+                            <div class="mt-3">
+                                <span class="badge-tech">Arduino</span>
+                                <span class="badge-tech">IoT</span>
+                                <span class="badge-tech">Sensors</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-4">
+                            <a href="https://github.com/Knight6azer?tab=repositories" target="_blank"
+                                class="btn btn-outline-primary btn-sm w-100">View Project</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                        <img src="https://placehold.co/400x250/198754/ffffff?text=Vegetable+Vendor+App" class="card-img-top" alt="Project 2">
+
+                <!-- Project 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="fw-bold">Vegetable Vendor App</h5>
-                            <p class="small text-muted"><strong>Problem:</strong> Inefficient manual billing.<br><strong>Work:</strong> Built a Python ordering system with JSON storage.</p>
-                            <div><span class="badge-tech">Python</span><span class="badge-tech">JSON</span><span class="badge-tech">Logic</span></div>
-                            <a href="#" class="btn btn-sm btn-outline-primary mt-3">View Code</a>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title fw-bold m-0">Vegetable Vendor App</h5>
+                                <i class="fas fa-shopping-basket fa-2x text-success"></i>
+                            </div>
+                            <p class="card-text text-muted">Python-based ordering & billing system using JSON storage
+                                for data management.</p>
+                            <div class="mt-3">
+                                <span class="badge-tech">Python</span>
+                                <span class="badge-tech">JSON</span>
+                                <span class="badge-tech">Billing System</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-4">
+                            <a href="https://github.com/Knight6azer?tab=repositories" target="_blank"
+                                class="btn btn-outline-success btn-sm w-100">View Project</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                        <img src="https://placehold.co/400x250/6c757d/ffffff?text=Smart+Security" class="card-img-top" alt="Project 3">
+
+                <!-- Project 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="fw-bold">Smart Home Security</h5>
-                            <p class="small text-muted"><strong>Problem:</strong> Home monitoring.<br><strong>Work:</strong> Arduino-based IoT device using multiple sensors.</p>
-                            <div><span class="badge-tech">Arduino</span><span class="badge-tech">IoT</span><span class="badge-tech">C++</span></div>
-                            <a href="#" class="btn btn-sm btn-outline-primary mt-3">View Code</a>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title fw-bold m-0">Acid Rain Data Analysis</h5>
+                                <i class="fas fa-cloud-rain fa-2x text-info"></i>
+                            </div>
+                            <p class="card-text text-muted">Data visualization and predictive modeling using Machine
+                                Learning basics.</p>
+                            <div class="mt-3">
+                                <span class="badge-tech">Python</span>
+                                <span class="badge-tech">Pandas</span>
+                                <span class="badge-tech">Predictive Modeling</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-4">
+                            <a href="https://github.com/Knight6azer?tab=repositories" target="_blank"
+                                class="btn btn-outline-info btn-sm w-100">View Project</a>
                         </div>
                     </div>
                 </div>
+
+            </div>
+
+            <div class="text-center mt-5">
+                <p class="mb-3">Check out more of my work on GitHub</p>
+                <a href="https://github.com/Knight6azer" class="btn btn-dark"><i class="fab fa-github me-2"></i>Visit
+                    GitHub Profile</a>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="section bg-light">
-        <div class="container text-center">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="row g-4 mt-2">
-                <div class="col-md-4">
-                    <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-                        <i class="fas fa-brain fa-3x text-primary mb-3"></i>
-                        <h5 class="fw-bold">Data Science</h5>
-                        <p class="text-muted">Python, SQL, NumPy, Pandas, Matplotlib, Machine Learning Basics </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-                        <i class="fas fa-microchip fa-3x text-primary mb-3"></i>
-                        <h5 class="fw-bold">Embedded Systems</h5>
-                        <p class="text-muted">Arduino, Raspberry Pi, Circuit Simulation, TinkerCad </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-                        <i class="fas fa-tools fa-3x text-primary mb-3"></i>
-                        <h5 class="fw-bold">Tools & Logic</h5>
-                        <p class="text-muted">C, C++, Git, Excel, Problem Solving, Team Leadership </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
+    <!-- Certifications & Achievements -->
+    <section class="section bg-white">
         <div class="container">
-            <h2 class="section-title">Contact Me</h2>
+            <div class="row g-5">
+                <div class="col-md-6">
+                    <h4 class="fw-bold mb-4">Certifications</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item px-0 border-0"><i
+                                class="fas fa-certificate text-warning me-3"></i>Data Analysis & Visualization
+                            Certificate</li>
+                        <li class="list-group-item px-0 border-0"><i
+                                class="fas fa-certificate text-warning me-3"></i>Embedded Systems Training Certificate
+                        </li>
+                        <li class="list-group-item px-0 border-0"><i
+                                class="fas fa-certificate text-warning me-3"></i>Python Programming Certificate</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="fw-bold mb-4">Achievements & Leadership</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item px-0 border-0">
+                            <h6 class="fw-bold"><i class="fas fa-crown text-warning me-2"></i>Co-Head, R&D Cell</h6>
+                            <small class="text-muted">Shree L.R. Tiwari College of Engineering</small>
+                        </li>
+                        <li class="list-group-item px-0 border-0">
+                            <h6 class="fw-bold"><i class="fas fa-trophy text-warning me-2"></i>Hackathon Participation
+                            </h6>
+                            <small class="text-muted">Team Leader for innovative tech solutions</small>
+                        </li>
+                        <li class="list-group-item px-0 border-0">
+                            <h6 class="fw-bold"><i class="fas fa-award text-warning me-2"></i>Multiple Certifications
+                            </h6>
+                            <small class="text-muted">Academic and skill-based certifications in software and embedded
+                                systems</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <form id="contactForm" class="bg-white p-4 rounded-4 shadow">
-                        <div class="mb-3"><label class="form-label">Name</label><input type="text" class="form-control" id="name" required></div>
-                        <div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control" id="email" required></div>
-                        <div class="mb-3"><label class="form-label">Message</label><textarea class="form-control" rows="4" id="message" required></textarea></div>
-                        <button type="submit" class="btn btn-primary w-100 py-2">Send Message</button>
-                    </form>
-                    <div id="form-message" class="mt-3"></div>
+                    <div class="card p-4 shadow-lg border-0">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Full Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Email Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Message</label>
+                                <textarea class="form-control" rows="5" id="message" placeholder="Your message here..."
+                                    required></textarea>
+                            </div>
+                            <button type="submit" id="sendBtn" class="btn btn-primary w-100 py-3 fw-bold">Send
+                                Message</button>
+                        </form>
+                        <div id="form-message" class="mt-3"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p class="mb-0">&copy; 2026 Ujjwal Tiwari. Built with Bootstrap 5.</p>
+            <h3 class="fw-bold mb-4">Ujjwal Suneel Tiwari</h3>
+            <p class="text-muted mb-4 small">Aspiring Data Scientist | Electronics & Computer Science Engineer</p>
+            <div class="mb-4">
+                <a href="https://www.linkedin.com/in/ujjwal-tiwari-6a55122a7"
+                    class="text-white mx-3 fs-4 hover-effect"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Knight6azer" class="text-white mx-3 fs-4 hover-effect"><i
+                        class="fab fa-github"></i></a>
+                <a href="mailto:ujjwal.tiwari@example.com" class="text-white mx-3 fs-4 hover-effect"><i
+                        class="fas fa-envelope"></i></a>
+            </div>
+            <p class="small opacity-50 mb-0">&copy; 2026 Ujjwal Suneel Tiwari. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Bootstrap Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- EmailJS Logic -->
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        (function () {
+            emailjs.init("ON_LqU563pPAcM8Zv"); // Public Key
+        })();
+
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            document.getElementById('form-message').innerHTML = '<div class="alert alert-success">Success! This is a demo message. Integration with EmailJS is recommended.</div>';
-            this.reset();
+            const btn = document.getElementById('sendBtn');
+            const messageDiv = document.getElementById('form-message');
+
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+            btn.disabled = true;
+            messageDiv.innerHTML = '';
+
+            const serviceID = "service_6bui3eb";
+            const templateID = "template_ox6qwet";
+
+            emailjs.send(serviceID, templateID, {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            }).then(() => {
+                messageDiv.innerHTML = '<div class="alert alert-success"><i class="fas fa-check-circle me-2"></i>Message sent successfully!</div>';
+                document.getElementById('contactForm').reset();
+            }).catch((error) => {
+                messageDiv.innerHTML = '<div class="alert alert-danger"><i class="fas fa-exclamation-circle me-2"></i>Failed to send message. Please try again later.</div>';
+                console.error('EmailJS Error:', error);
+            }).finally(() => {
+                btn.innerHTML = "Send Message";
+                btn.disabled = false;
+            });
         });
     </script>
 </body>
+
 </html>
