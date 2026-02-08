@@ -5,9 +5,10 @@ A professional, responsive portfolio website built to showcase my journey as an 
 ## Features
 
 - **Modern UI/UX**: Clean, responsive design built with **Bootstrap 5**.
-- **Dynamic Content**: Sections for About, Experience, Skills, and Projects tailored to my professional profile.
+- **Dynamic Content**: Sections for About, Experience, Skills, Certifications, and Projects.
 - **Contact Form**: Integrated with **EmailJS** for direct messaging functionality.
-- **Project Showcase**: Highlighted key projects like the Smart Home Security System and Vegetable Vendor App.
+- **Project Showcase**: Highlights 6 key projects including Business Insights Analytic, Emotional Wellbeing Recommender, and more.
+- **Certifications**: Lists professional certifications in AI, Python, and Software Engineering.
 
 ## Technology Stack
 
