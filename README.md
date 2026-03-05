@@ -7,8 +7,9 @@ A professional, responsive portfolio website built to showcase my journey as an 
 - **Modern UI/UX**: Clean, responsive design built with **Bootstrap 5**.
 - **Dynamic Content**: Sections for About, Experience, Skills, Certifications, and Projects.
 - **Contact Form**: Integrated with **EmailJS** for direct messaging functionality.
-- **Project Showcase**: Highlights 7 key projects across AI/ML, IoT, and software development.
+- **Project Showcase**: Highlights 9 key projects including Krishi Kaar, Fake News Detector, Acid Rain Analysis Model, and Business Insights Analytics.
 - **Certifications**: Lists professional certifications in AI, Python, and Software Engineering.
+
 
 ## Technology Stack
 
@@ -16,19 +17,6 @@ A professional, responsive portfolio website built to showcase my journey as an 
 - **Framework**: Bootstrap 5.3.2
 - **Icons**: Font Awesome 6
 - **Fonts**: Google Fonts (Inter)
-- **Contact**: EmailJS
-
-## Projects Showcased
-
-| Project | Tech Stack |
-|---|---|
-| [Business Insights Analytic](https://github.com/Knight6azer/Business-Insights-Analytic) | Python, Pandas, Matplotlib, Scikit-learn |
-| [Emotional Wellbeing Recommender](https://github.com/Knight6azer/Emotional-Wellbeing-Recommender) | Python, Machine Learning, NLP, Flask |
-| [Vegetable Vendor App](https://github.com/Knight6azer/Vegetable_Vendor_App) | Python, JSON, CLI, Inventory Management |
-| [Schedule Manager](https://github.com/Knight6azer/Schedule-Manager) | Python, Flask, SQLAlchemy, Vercel |
-| [Acid Rain Analysis Model](https://github.com/Knight6azer/Acid-Rain-Analysis) | Python, Pandas, Matplotlib, Data Analysis |
-| [Smart Home Security System](https://github.com/Knight6azer/Smart-Home-Security-System) | Arduino, IoT, Python, Telegram Bot |
-| [Temperature & Humidity Analysis](https://github.com/Knight6azer/Temperature-Humidiy-Analysis) | Python, IoT, Seaborn, Data Analysis |
 
 ## Setup Instructions
 
@@ -37,14 +25,14 @@ A professional, responsive portfolio website built to showcase my journey as an 
     git clone https://github.com/Knight6azer/PPSlite.git
     ```
 2.  **Open index.html**:
-    Simply open `index.html` in your preferred browser — no build step required.
+    simply open `index.html` in your preferred browser.
 
 ## Personalization
 
 To update the content:
 - **EmailJS**: Replace the User ID and Service ID in the `<script>` section at the bottom of `index.html`.
 - **Links**: Update `href` attributes for LinkedIn and GitHub buttons.
-- **Projects**: Add or edit project cards in the `#projects` section of `index.html`.
+- **Resume**: Link your resume PDF in the hero section.
 
 ## License
 
