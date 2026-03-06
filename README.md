@@ -1,6 +1,6 @@
-# Ujjwal Tiwari — Personal Portfolio (PPSlite)
+# Ujjwal Tiwari — Personal Portfolio
 
-A modern, dark-themed portfolio website showcasing the journey of Ujjwal Suneel Tiwari as an Electronics & Computer Science Engineer and aspiring Data Scientist.
+A modern, dark-themed portfolio website showcasing the journey of Ujjwal Tiwari as an Electronics & Computer Science Engineer and aspiring Data Scientist.
 
 🔗 **Live:** [utpps.vercel.app](https://utpps.vercel.app/)
 
