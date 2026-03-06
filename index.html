@@ -1004,6 +1004,92 @@
                 width: var(--w);
             }
         }
+
+        /* ─── Language Bars (Most Used Languages card) ── */
+        .lang-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .lang-bar-item {
+            margin: 0;
+        }
+
+        .lang-bar-label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.8rem;
+            margin-bottom: 4px;
+        }
+
+        .lang-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .lang-name {
+            color: var(--text-secondary);
+            flex: 1;
+        }
+
+        .lang-pct {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 0.78rem;
+        }
+
+        .lang-bar-track {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .lang-bar-fill {
+            height: 100%;
+            border-radius: 999px;
+            width: 0;
+            animation: lang-grow 1.5s cubic-bezier(.4, 0, .2, 1) forwards;
+            animation-delay: 0.4s;
+        }
+
+        @keyframes lang-grow {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: var(--lw);
+            }
+        }
+
+        /* Stacked colour bar */
+        .lang-stack {
+            display: flex;
+            height: 8px;
+            border-radius: 999px;
+            overflow: hidden;
+            gap: 2px;
+        }
+
+        .lang-stack-seg {
+            border-radius: 999px;
+            transition: opacity 0.2s ease;
+        }
+
+        .lang-stack-seg:hover {
+            opacity: 0.8;
+        }
+
+        .lang-source {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
     </style>
 </head>
 
@@ -1020,7 +1106,8 @@
                 <ul class="navbar-nav ms-auto fw-medium">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#coding-activity">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#coding-activity">Coding Activity</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -1330,16 +1417,80 @@
                     </div>
                 </div>
 
-                <!-- Live Top Languages card (API) -->
+                <!-- Most Used Languages (pure CSS — always renders) -->
                 <div class="col-lg-4 col-md-6">
                     <div class="gh-card h-100">
                         <div class="gh-card-header">
                             <i class="fas fa-fire gh-icon-header" style="color:#f97316;"></i>
                             <span>Most Used Languages</span>
                         </div>
-                        <div class="gh-card-body d-flex align-items-center justify-content-center">
-                            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Knight6azer&layout=compact&theme=transparent&hide_border=true&title_color=6ea8fe&text_color=e8eaed&bg_color=00000000&langs_count=6"
-                                alt="Top Languages" class="gh-stats-img" loading="lazy">
+                        <div class="gh-card-body">
+                            <!-- Language horizontal bar chart -->
+                            <div class="lang-bars">
+
+                                <div class="lang-bar-item">
+                                    <div class="lang-bar-label">
+                                        <span class="lang-dot" style="background:#3572A5"></span>
+                                        <span class="lang-name">Python</span>
+                                        <span class="lang-pct">72.7%</span>
+                                    </div>
+                                    <div class="lang-bar-track">
+                                        <div class="lang-bar-fill" style="--lw:72.7%;background:#3572A5;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="lang-bar-item">
+                                    <div class="lang-bar-label">
+                                        <span class="lang-dot" style="background:#DA5B0B"></span>
+                                        <span class="lang-name">Jupyter Notebook</span>
+                                        <span class="lang-pct">9.1%</span>
+                                    </div>
+                                    <div class="lang-bar-track">
+                                        <div class="lang-bar-fill" style="--lw:9.1%;background:#DA5B0B;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="lang-bar-item">
+                                    <div class="lang-bar-label">
+                                        <span class="lang-dot" style="background:#3178C6"></span>
+                                        <span class="lang-name">TypeScript</span>
+                                        <span class="lang-pct">9.1%</span>
+                                    </div>
+                                    <div class="lang-bar-track">
+                                        <div class="lang-bar-fill" style="--lw:9.1%;background:#3178C6;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="lang-bar-item">
+                                    <div class="lang-bar-label">
+                                        <span class="lang-dot" style="background:#F34B7D"></span>
+                                        <span class="lang-name">C++</span>
+                                        <span class="lang-pct">9.1%</span>
+                                    </div>
+                                    <div class="lang-bar-track">
+                                        <div class="lang-bar-fill" style="--lw:9.1%;background:#F34B7D;"></div>
+                                    </div>
+                                </div>
+
+                            </div><!-- /lang-bars -->
+
+                            <!-- Stacked colour segment bar -->
+                            <div class="lang-stack mt-4" title="Language distribution">
+                                <div class="lang-stack-seg" style="width:72.7%;background:#3572A5;"
+                                    title="Python 72.7%"></div>
+                                <div class="lang-stack-seg" style="width:9.1%;background:#DA5B0B;" title="Jupyter 9.1%">
+                                </div>
+                                <div class="lang-stack-seg" style="width:9.1%;background:#3178C6;"
+                                    title="TypeScript 9.1%"></div>
+                                <div class="lang-stack-seg" style="width:9.1%;background:#F34B7D;" title="C++ 9.1%">
+                                </div>
+                            </div>
+
+                            <p class="lang-source mt-3">
+                                <i class="fab fa-github me-1"></i>
+                                Based on <a href="https://github.com/Knight6azer" target="_blank"
+                                    style="color:#6ea8fe;">11 public repos</a>
+                            </p>
                         </div>
                     </div>
                 </div>
