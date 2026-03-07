@@ -57,17 +57,38 @@
 
         .navbar-brand {
             color: var(--primary-blue) !important;
+            letter-spacing: 0.12em;
+        }
+
+        .navbar-nav {
+            gap: 0.75rem;
         }
 
         .nav-link {
             color: var(--text-secondary) !important;
             font-weight: 500;
-            transition: color 0.2s ease;
+            transition: color 0.2s ease, transform 0.2s ease;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
+
+        .nav-link-numbered {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .nav-index {
+            font-size: 0.8rem;
+            color: var(--primary-blue);
+            opacity: 0.8;
         }
 
         .nav-link:hover,
         .nav-link.active {
             color: var(--primary-blue) !important;
+            transform: translateY(-1px);
         }
 
         .navbar-toggler {
@@ -76,6 +97,14 @@
 
         .navbar-toggler-icon {
             filter: invert(1);
+        }
+
+        .nav-resume-btn {
+            border-radius: 999px;
+            font-size: 0.82rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            padding-inline: 1.4rem;
         }
 
         /* Hero Section */
@@ -629,6 +658,131 @@
             border-radius: 50%;
         }
 
+        /* Education cards */
+        .edu-card {
+            background: var(--dark-card);
+            border-radius: 16px;
+            padding: 20px 22px;
+            border: 1px solid var(--dark-border);
+            box-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
+        }
+
+        .edu-year-pill {
+            background: rgba(13, 110, 253, 0.18);
+            color: #6ea8fe;
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .edu-chip {
+            background: rgba(148, 163, 184, 0.16);
+            color: #e5e7eb;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+        }
+
+        /* Experience timeline */
+        .exp-timeline {
+            position: relative;
+            padding-left: 26px;
+            border-left: 2px solid rgba(148, 163, 184, 0.4);
+        }
+
+        .exp-item {
+            position: relative;
+            margin-bottom: 28px;
+        }
+
+        .exp-dot {
+            position: absolute;
+            left: -9px;
+            top: 14px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            box-shadow: 0 0 0 5px rgba(13, 110, 253, 0.18);
+        }
+
+        .exp-card {
+            background: var(--dark-card);
+            border-radius: 16px;
+            padding: 18px 20px;
+            border: 1px solid var(--dark-border);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .exp-card:hover {
+            border-color: rgba(13, 110, 253, 0.4);
+            box-shadow: 0 14px 40px rgba(13, 110, 253, 0.24);
+            transform: translateY(-2px);
+            transition: all 0.25s ease;
+        }
+
+        .exp-year-pill {
+            background: rgba(15, 23, 42, 0.9);
+            color: #9ca3af;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+        }
+
+        .exp-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: rgba(34, 197, 94, 0.16);
+            color: #86efac;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-weight: 600;
+        }
+
+        /* Certification cards */
+        .cert-card {
+            background: var(--dark-card);
+            border-radius: 16px;
+            border: 1px solid var(--dark-border);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .cert-card:hover {
+            border-color: rgba(13, 110, 253, 0.4);
+            box-shadow: 0 14px 40px rgba(13, 110, 253, 0.2);
+            transform: translateY(-2px);
+            transition: all 0.25s ease;
+        }
+
+        .cert-icon-wrap {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: rgba(250, 204, 21, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #facc15;
+        }
+
+        /* Contact info icons */
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(13, 110, 253, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+        }
+
         /* ─── Footer ─────────────────────────────────── */
         footer {
             background: #060609;
@@ -1124,26 +1278,60 @@
     <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold text-primary" href="#">UT.</a>
+            <a class="navbar-brand fw-bold text-primary" href="#about">UT.</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto fw-medium">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#coding-activity">Coding Activity</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <ul class="navbar-nav ms-auto fw-medium align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-numbered" href="#about">
+                            <span class="nav-index">01.</span><span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-numbered" href="#education">
+                            <span class="nav-index">02.</span><span>Education</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-numbered" href="#experience">
+                            <span class="nav-index">03.</span><span>Experience</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-numbered" href="#projects">
+                            <span class="nav-index">04.</span><span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-numbered" href="#skills">
+                            <span class="nav-index">05.</span><span>Skills</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-numbered" href="#coding-activity">
+                            <span class="nav-index">06.</span><span>Coding</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-numbered" href="#contact">
+                            <span class="nav-index">07.</span><span>Contact</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="btn btn-outline-primary nav-resume-btn" href="Ujjwal_Tiwari_Resume.pdf"
+                            target="_blank" rel="noopener noreferrer">
+                            Resume
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- Hero + About Entry Section -->
+    <section id="about" class="hero">
 
         <!-- Background particle dots -->
         <div class="hero-dots" aria-hidden="true">
@@ -1220,7 +1408,7 @@
                     </div>
                 </div>
 
-                <!-- Right: Portrait with Glow + Interactive Skills Globe -->
+                <!-- Right: Portrait with Glow -->
                 <div class="col-lg-6 hero-img-col">
 
                     <!-- Profile Photo with floating badges -->
@@ -1248,12 +1436,6 @@
                         </div>
                     </div>
 
-                    <!-- Interactive 3-D Skills Globe -->
-                    <div class="skills-globe-wrap">
-                        <canvas id="skills-globe-canvas"></canvas>
-                        <p class="globe-label">Interactive Skills Globe</p>
-                    </div>
-
                 </div>
 
             </div><!-- end row -->
@@ -1267,34 +1449,22 @@
 
     </section>
 
-    <!-- About / Education Section -->
-    <section id="about" class="section bg-white">
+    <!-- About Details Section -->
+    <section class="section bg-white">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
                     <h2 class="section-title text-start mb-4">About Me</h2>
                     <p class="lead mb-4">
-                        I am a third year <strong>Electronics & Computer Science Engineering</strong> student at Shree
+                        I am a third year <strong>Electronics &amp; Computer Science Engineering</strong> student at
+                        Shree
                         L.R. Tiwari College of Engineering (2023-2027).
                     </p>
                     <p class="text-muted mb-4">
                         With hands-on experience in Data Analysis, Python, and Embedded Systems, I specialize in
                         creating solutions that matter. I have strong leadership abilities, currently serving as a
-                        Co-Head of the R&D Cell, where I lead innovative tech solutions.
+                        Co-Head of the R&amp;D Cell, where I lead innovative tech solutions.
                     </p>
-
-                    <h4 class="fw-bold mb-3"><i class="fas fa-graduation-cap text-primary me-2"></i>Education</h4>
-                    <div class="timeline-item">
-                        <h5 class="fw-bold">Bachelor of Engineering in Electronics & Computer Science</h5>
-                        <p class="text-muted mb-0">Shree L.R. Tiwari College of Engineering | 2023 - 2027</p>
-                        <small class="text-primary">Relevant Courses: Data Structures, OOPs, Embedded Systems, Computer
-                            Networks</small>
-                    </div>
-                    <div class="timeline-item">
-                        <h5 class="fw-bold">Secondary & Higher Secondary Education</h5>
-                        <p class="text-muted mb-0">Maharashtra Board</p>
-                        <small>HSC (Feb 2023) | SSC (Mar 2021)</small>
-                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="row g-3">
@@ -1323,7 +1493,7 @@
                             <div class="p-4 border rounded-4 text-center bg-light h-100">
                                 <i class="fas fa-users fa-2x text-info mb-3"></i>
                                 <h5 class="fw-bold">Leadership</h5>
-                                <p class="small text-muted mb-0">Team Management, R&D Cell</p>
+                                <p class="small text-muted mb-0">Team Management, R&amp;D Cell</p>
                             </div>
                         </div>
                     </div>
@@ -1332,315 +1502,40 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════
-         GITHUB CODING ACTIVITY SHOWCASE
-    ════════════════════════════════════════════════ -->
-    <section id="coding-activity" class="section">
+    <!-- Education Section -->
+    <section id="education" class="section bg-light">
         <div class="container">
-
-            <h2 class="section-title">Coding Activity</h2>
-
-            <!-- Top row: GitHub profile card + Contribution graph -->
-            <div class="row g-4 mb-4 align-items-stretch">
-
-                <!-- GitHub Profile Card -->
-                <div class="col-lg-5">
-                    <div class="gh-card h-100">
-                        <div class="gh-card-header">
-                            <i class="fab fa-github gh-icon-header"></i>
-                            <span>Knight6azer</span>
-                        </div>
-                        <div class="gh-card-body">
-                            <div class="gh-profile-row">
-                                <img src="https://avatars.githubusercontent.com/u/184063744?v=4" alt="GitHub Avatar"
-                                    class="gh-avatar">
-                                <div>
-                                    <div class="gh-username">Ujjwal Tiwari</div>
-                                    <div class="gh-handle">@Knight6azer</div>
-                                    <div class="gh-bio">"If the truth is cruel then lies must be kind."</div>
-                                </div>
-                            </div>
-                            <div class="gh-meta-list">
-                                <div class="gh-meta-item"><i class="fab fa-github"></i> 11 Public Repos</div>
-                                <div class="gh-meta-item"><i class="fas fa-map-marker-alt"></i> Mumbai, India
-                                </div>
-                                <div class="gh-meta-item"><i class="fas fa-clock"></i> Joined Oct 2024
-                                </div>
-                                <div class="gh-meta-item"><i class="fas fa-link"></i>
-                                    <a href="https://utpps.vercel.app/" target="_blank"
-                                        style="color:#6ea8fe;">utpps.vercel.app</a>
-                                </div>
-                            </div>
-                            <div class="gh-follow-row">
-                                <span><i class="fas fa-user-friends me-1"></i> 7 Followers</span>
-                                <span><i class="fas fa-user-plus me-1"></i> 8 Following</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- GitHub Stats Card (live) -->
-                <div class="col-lg-7">
-                    <div class="gh-card h-100 d-flex flex-column">
-                        <div class="gh-card-header">
-                            <i class="fas fa-chart-bar gh-icon-header"></i>
-                            <span>GitHub Statistics</span>
-                        </div>
-                        <div class="gh-card-body flex-grow-1 d-flex align-items-center justify-content-center p-3">
-                            <img src="https://github-readme-stats.vercel.app/api?username=Knight6azer&show_icons=true&theme=transparent&hide_border=true&title_color=6ea8fe&text_color=e8eaed&icon_color=0d6efd&bg_color=00000000&count_private=true&hide=contribs"
-                                alt="GitHub Stats" class="gh-stats-img" loading="lazy">
-                        </div>
-                        <div class="gh-card-body pt-0 d-flex align-items-center justify-content-center">
-                            <img src="https://github-readme-streak-stats.herokuapp.com/?user=Knight6azer&theme=dark&hide_border=true&background=00000000&ring=0d6efd&fire=6ea8fe&currStreakLabel=6ea8fe&sideLabels=9ca3af&dates=6c757d&currStreakNum=ffffff&sideNums=e8eaed"
-                                alt="GitHub Streak" class="gh-stats-img" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bottom row: Languages donut + Skill bars -->
+            <h2 class="section-title">Education</h2>
             <div class="row g-4">
-
-                <!-- Top Languages by Repo (donut chart) -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="gh-card h-100">
-                        <div class="gh-card-header">
-                            <i class="fas fa-code-branch gh-icon-header"></i>
-                            <span>Top Languages by Repo</span>
-                        </div>
-                        <div class="gh-card-body">
-                            <div class="gh-donut-wrap">
-                                <svg class="gh-donut" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- Python 73% -->
-                                    <circle class="gh-donut-ring" cx="18" cy="18" r="15.915" fill="transparent"
-                                        stroke="#1a1a2e" stroke-width="3.5" />
-                                    <circle class="gh-donut-seg" cx="18" cy="18" r="15.915" fill="transparent"
-                                        stroke="#3572A5" stroke-width="3.5" stroke-dasharray="73 27"
-                                        stroke-dashoffset="25" />
-                                    <!-- Jupyter Notebook 9% -->
-                                    <circle class="gh-donut-seg" cx="18" cy="18" r="15.915" fill="transparent"
-                                        stroke="#DA5B0B" stroke-width="3.5" stroke-dasharray="9 91"
-                                        stroke-dashoffset="-48" />
-                                    <!-- TypeScript 9% -->
-                                    <circle class="gh-donut-seg" cx="18" cy="18" r="15.915" fill="transparent"
-                                        stroke="#3178C6" stroke-width="3.5" stroke-dasharray="9 91"
-                                        stroke-dashoffset="-57" />
-                                    <!-- C++ 9% -->
-                                    <circle class="gh-donut-seg" cx="18" cy="18" r="15.915" fill="transparent"
-                                        stroke="#F34B7D" stroke-width="3.5" stroke-dasharray="9 91"
-                                        stroke-dashoffset="-66" />
-                                    <!-- Center text -->
-                                    <text x="18" y="18.5" text-anchor="middle" dominant-baseline="middle" fill="#6ea8fe"
-                                        font-size="4" font-family="Inter,sans-serif" font-weight="bold">11 Repos</text>
-                                </svg>
-                                <div class="gh-legend">
-                                    <div class="gh-legend-item"><span class="gh-legend-dot"
-                                            style="background:#3572A5"></span>Python <span
-                                            class="gh-legend-pct">73%</span></div>
-                                    <div class="gh-legend-item"><span class="gh-legend-dot"
-                                            style="background:#DA5B0B"></span>Jupyter Notebook <span
-                                            class="gh-legend-pct">9%</span></div>
-                                    <div class="gh-legend-item"><span class="gh-legend-dot"
-                                            style="background:#3178C6"></span>TypeScript <span
-                                            class="gh-legend-pct">9%</span></div>
-                                    <div class="gh-legend-item"><span class="gh-legend-dot"
-                                            style="background:#F34B7D"></span>C++ <span class="gh-legend-pct">9%</span>
-                                    </div>
-                                </div>
+                <div class="col-lg-7">
+                    <div class="edu-card h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h5 class="fw-bold mb-1">Bachelor of Engineering</h5>
+                                <p class="text-primary mb-1">Electronics &amp; Computer Science</p>
+                                <p class="text-muted mb-0">Shree L.R. Tiwari College of Engineering</p>
                             </div>
+                            <span class="edu-year-pill">2023 &ndash; 2027</span>
                         </div>
+                        <p class="small text-muted mb-2">Bachelor of Engineering, Mumbai University</p>
+                        <p class="small text-uppercase text-secondary fw-semibold mb-1">Relevant Courses</p>
+                        <p class="small text-muted mb-0">
+                            Data Structures, OOPs, Embedded Systems, Computer Networks, DBMS.
+                        </p>
                     </div>
                 </div>
-
-                <!-- Most Used Languages (pure CSS — always renders) -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="gh-card h-100">
-                        <div class="gh-card-header">
-                            <i class="fas fa-fire gh-icon-header" style="color:#f97316;"></i>
-                            <span>Most Used Languages</span>
+                <div class="col-lg-5">
+                    <div class="edu-card h-100">
+                        <h6 class="text-primary text-uppercase small fw-semibold mb-2">Secondary &amp; Higher
+                            Secondary</h6>
+                        <p class="fw-bold mb-1">Maharashtra Board</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-muted small">HSC / 12th Grade &mdash; Science Stream</span>
+                            <span class="edu-chip">Feb 2023</span>
                         </div>
-                        <div class="gh-card-body">
-                            <!-- Language horizontal bar chart -->
-                            <div class="lang-bars">
-
-                                <div class="lang-bar-item">
-                                    <div class="lang-bar-label">
-                                        <span class="lang-dot" style="background:#3572A5"></span>
-                                        <span class="lang-name">Python</span>
-                                        <span class="lang-pct">72.7%</span>
-                                    </div>
-                                    <div class="lang-bar-track">
-                                        <div class="lang-bar-fill" style="--lw:72.7%;background:#3572A5;"></div>
-                                    </div>
-                                </div>
-
-                                <div class="lang-bar-item">
-                                    <div class="lang-bar-label">
-                                        <span class="lang-dot" style="background:#DA5B0B"></span>
-                                        <span class="lang-name">Jupyter Notebook</span>
-                                        <span class="lang-pct">9.1%</span>
-                                    </div>
-                                    <div class="lang-bar-track">
-                                        <div class="lang-bar-fill" style="--lw:9.1%;background:#DA5B0B;"></div>
-                                    </div>
-                                </div>
-
-                                <div class="lang-bar-item">
-                                    <div class="lang-bar-label">
-                                        <span class="lang-dot" style="background:#3178C6"></span>
-                                        <span class="lang-name">TypeScript</span>
-                                        <span class="lang-pct">9.1%</span>
-                                    </div>
-                                    <div class="lang-bar-track">
-                                        <div class="lang-bar-fill" style="--lw:9.1%;background:#3178C6;"></div>
-                                    </div>
-                                </div>
-
-                                <div class="lang-bar-item">
-                                    <div class="lang-bar-label">
-                                        <span class="lang-dot" style="background:#F34B7D"></span>
-                                        <span class="lang-name">C++</span>
-                                        <span class="lang-pct">9.1%</span>
-                                    </div>
-                                    <div class="lang-bar-track">
-                                        <div class="lang-bar-fill" style="--lw:9.1%;background:#F34B7D;"></div>
-                                    </div>
-                                </div>
-
-                            </div><!-- /lang-bars -->
-
-                            <!-- Stacked colour segment bar -->
-                            <div class="lang-stack mt-4" title="Language distribution">
-                                <div class="lang-stack-seg" style="width:72.7%;background:#3572A5;"
-                                    title="Python 72.7%"></div>
-                                <div class="lang-stack-seg" style="width:9.1%;background:#DA5B0B;" title="Jupyter 9.1%">
-                                </div>
-                                <div class="lang-stack-seg" style="width:9.1%;background:#3178C6;"
-                                    title="TypeScript 9.1%"></div>
-                                <div class="lang-stack-seg" style="width:9.1%;background:#F34B7D;" title="C++ 9.1%">
-                                </div>
-                            </div>
-
-                            <p class="lang-source mt-3">
-                                <i class="fab fa-github me-1"></i>
-                                Based on <a href="https://github.com/Knight6azer" target="_blank"
-                                    style="color:#6ea8fe;">11 public repos</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill Proficiency Bars -->
-                <div class="col-lg-4 col-md-12">
-                    <div class="gh-card h-100">
-                        <div class="gh-card-header">
-                            <i class="fas fa-rocket gh-icon-header" style="color:#a78bfa;"></i>
-                            <span>Skill Proficiency</span>
-                        </div>
-                        <div class="gh-card-body">
-                            <div class="skill-bar-list">
-                                <div class="skill-bar-item">
-                                    <div class="skill-bar-label"><span>Python</span><span
-                                            class="skill-bar-pct">90%</span></div>
-                                    <div class="skill-bar-track">
-                                        <div class="skill-bar-fill" style="--w:90%;background:#3572A5;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar-item">
-                                    <div class="skill-bar-label"><span>Data Science / ML</span><span
-                                            class="skill-bar-pct">80%</span></div>
-                                    <div class="skill-bar-track">
-                                        <div class="skill-bar-fill" style="--w:80%;background:#0d6efd;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar-item">
-                                    <div class="skill-bar-label"><span>Embedded Systems</span><span
-                                            class="skill-bar-pct">75%</span></div>
-                                    <div class="skill-bar-track">
-                                        <div class="skill-bar-fill" style="--w:75%;background:#F34B7D;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar-item">
-                                    <div class="skill-bar-label"><span>SQL / Databases</span><span
-                                            class="skill-bar-pct">70%</span></div>
-                                    <div class="skill-bar-track">
-                                        <div class="skill-bar-fill" style="--w:70%;background:#f59e0b;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar-item">
-                                    <div class="skill-bar-label"><span>IoT / Arduino</span><span
-                                            class="skill-bar-pct">72%</span></div>
-                                    <div class="skill-bar-track">
-                                        <div class="skill-bar-fill" style="--w:72%;background:#10b981;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar-item">
-                                    <div class="skill-bar-label"><span>Web (Flask / HTML)</span><span
-                                            class="skill-bar-pct">65%</span></div>
-                                    <div class="skill-bar-track">
-                                        <div class="skill-bar-fill" style="--w:65%;background:#a78bfa;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- /row -->
-
-            <!-- CTA to GitHub -->
-            <div class="text-center mt-5">
-                <a href="https://github.com/Knight6azer" target="_blank" class="btn btn-hero-primary px-4 py-2">
-                    <i class="fab fa-github me-2"></i>View Full GitHub Profile
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="card p-5 shadow-sm">
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <h5 class="fw-bold text-primary mb-3">Programming</h5>
-                                <div>
-                                    <span class="badge-tech">Python</span>
-                                    <span class="badge-tech">C</span>
-                                    <span class="badge-tech">C++</span>
-                                    <span class="badge-tech">SQL</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <h5 class="fw-bold text-success mb-3">Data Science</h5>
-                                <div>
-                                    <span class="badge-tech">NumPy</span>
-                                    <span class="badge-tech">Pandas</span>
-                                    <span class="badge-tech">Matplotlib</span>
-                                    <span class="badge-tech">Excel</span>
-                                    <span class="badge-tech">Machine Learning Basics</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <h5 class="fw-bold text-danger mb-3">Embedded Systems</h5>
-                                <div>
-                                    <span class="badge-tech">Arduino</span>
-                                    <span class="badge-tech">Raspberry Pi</span>
-                                    <span class="badge-tech">Circuit Simulation</span>
-                                    <span class="badge-tech">TinkerCad</span>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="my-4">
-                        <div class="text-center">
-                            <h5 class="fw-bold text-dark mb-3">Soft Skills</h5>
-                            <span class="badge bg-secondary me-2">Logical Reasoning</span>
-                            <span class="badge bg-secondary me-2">Problem Solving</span>
-                            <span class="badge bg-secondary me-2">Team Leadership</span>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-muted small">SSC / 10th Grade</span>
+                            <span class="edu-chip">Mar 2021</span>
                         </div>
                     </div>
                 </div>
@@ -1652,53 +1547,65 @@
     <section id="experience" class="section bg-white">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
-            <div class="row g-4 justify-content-center">
+            <div class="exp-timeline">
 
-                <!-- Internship 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 p-4 border-top border-4 border-primary">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Data Analysis Internship</h5>
-                            <p class="card-subtitle text-muted mb-3">Intern</p>
-                            <ul class="list-unstyled small text-muted">
-                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Collected,
-                                    cleaned, and visualized data using Python (Pandas, Matplotlib) and SQL.</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Explored machine
-                                    learning basics to generate actionable insights.</li>
-                            </ul>
+                <!-- Data Analysis Internship -->
+                <div class="exp-item">
+                    <div class="exp-dot"></div>
+                    <div class="exp-card">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h5 class="fw-bold mb-1">Data Analysis Internship</h5>
+                                <span class="exp-badge">Internship</span>
+                            </div>
+                            <span class="exp-year-pill">2025</span>
                         </div>
+                        <ul class="mb-0 small text-muted">
+                            <li class="mb-1">Collected, cleaned, and visualized data using Python (Pandas, Matplotlib)
+                                and SQL.</li>
+                            <li class="mb-1">Explored machine learning basics to generate actionable insights from
+                                complex datasets.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Internship 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 p-4 border-top border-4 border-success">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Embedded Systems Internship</h5>
-                            <div class="badge bg-success mb-2">Circuit Wizard</div>
-                            <ul class="list-unstyled small text-muted">
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Designed and
-                                    simulated electronic circuits, microcontrollers, and IoT-based solutions.</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Debugged and
-                                    optimized hardware-software integration using oscilloscopes and multimeters.</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Reduced system
-                                    error rates by <strong>15%</strong> during prototype testing.</li>
-                            </ul>
+                <!-- Embedded Systems Internship -->
+                <div class="exp-item">
+                    <div class="exp-dot"></div>
+                    <div class="exp-card">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h5 class="fw-bold mb-1">Embedded Systems Internship &mdash; Circuit Wizard</h5>
+                                <span class="exp-badge">Internship</span>
+                            </div>
+                            <span class="exp-year-pill">2024</span>
                         </div>
+                        <ul class="mb-0 small text-muted">
+                            <li class="mb-1">Designed and simulated electronic circuits, microcontrollers, and
+                                IoT-based solutions.</li>
+                            <li class="mb-1">Debugged and optimized hardware-software integration using oscilloscopes
+                                and multimeters.</li>
+                            <li class="mb-1">Reduced system error rates by <strong>15%</strong> during prototype
+                                testing.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Internship 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 p-4 border-top border-4 border-warning">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Python Internship</h5>
-                            <p class="card-subtitle text-muted mb-3">Intern</p>
-                            <ul class="list-unstyled small text-muted">
-                                <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i>Developed core
-                                    Python scripts and implemented in mini-projects to automate simple tasks.</li>
-                            </ul>
+                <!-- Python Internship -->
+                <div class="exp-item">
+                    <div class="exp-dot"></div>
+                    <div class="exp-card">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h5 class="fw-bold mb-1">Python Internship</h5>
+                                <span class="exp-badge">Internship</span>
+                            </div>
+                            <span class="exp-year-pill">2023</span>
                         </div>
+                        <ul class="mb-0 small text-muted">
+                            <li class="mb-1">Developed core Python scripts and mini-projects to automate practical
+                                tasks.</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -1937,57 +1844,482 @@
         </div>
     </section>
 
-    <!-- Certifications & Achievements -->
-    <section class="section bg-white">
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-light">
         <div class="container">
-            <div class="row g-5">
-                <div class="col-md-6">
-                    <h4 class="fw-bold mb-4">Certifications</h4>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item px-0 border-0"><i
-                                class="fas fa-certificate text-warning me-3"></i>Open Source Models with Hugging Face
-                        </li>
-                        <li class="list-group-item px-0 border-0"><i
-                                class="fas fa-certificate text-warning me-3"></i>Edunet - Green Skills and Artificial
-                            Intelligence</li>
-                        <li class="list-group-item px-0 border-0"><i
-                                class="fas fa-certificate text-warning me-3"></i>Pyverse - Application Creation using
-                            Python</li>
-                        <li class="list-group-item px-0 border-0"><i
-                                class="fas fa-certificate text-warning me-3"></i>Edith - AI Agent Buildathon</li>
-                        <li class="list-group-item px-0 border-0"><i
-                                class="fas fa-certificate text-warning me-3"></i>Software Engineering</li>
-                        <li class="list-group-item px-0 border-0"><i
-                                class="fas fa-certificate text-warning me-3"></i>Python for Begineers: Variables &
-                            Strings/Data Structures</li>
-                        <li class="list-group-item px-0 border-0"><i
-                                class="fas fa-certificate text-warning me-3"></i>Dictionaries in Python</li>
-                        <li class="list-group-item px-0 border-0"><i
-                                class="fas fa-certificate text-warning me-3"></i>Python Program 101/Programming in
-                            Python</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="fw-bold mb-4">Achievements & Leadership</h4>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item px-0 border-0">
-                            <h6 class="fw-bold"><i class="fas fa-crown text-warning me-2"></i>Co-Head, R&D Cell</h6>
-                            <small class="text-muted">Shree L.R. Tiwari College of Engineering</small>
-                        </li>
-                        <li class="list-group-item px-0 border-0">
-                            <h6 class="fw-bold"><i class="fas fa-trophy text-warning me-2"></i>Hackathon Participation
-                            </h6>
-                            <small class="text-muted">Team Leader for innovative tech solutions</small>
-                        </li>
-                        <li class="list-group-item px-0 border-0">
-                            <h6 class="fw-bold"><i class="fas fa-award text-warning me-2"></i>Multiple Certifications
-                            </h6>
-                            <small class="text-muted">Academic and skill-based certifications in software and embedded
-                                systems</small>
-                        </li>
-                    </ul>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card p-5 shadow-sm">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <h5 class="fw-bold text-primary mb-3">Programming</h5>
+                                <div>
+                                    <span class="badge-tech">Python</span>
+                                    <span class="badge-tech">C</span>
+                                    <span class="badge-tech">C++</span>
+                                    <span class="badge-tech">SQL</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h5 class="fw-bold text-success mb-3">Data Science</h5>
+                                <div>
+                                    <span class="badge-tech">NumPy</span>
+                                    <span class="badge-tech">Pandas</span>
+                                    <span class="badge-tech">Matplotlib</span>
+                                    <span class="badge-tech">Excel</span>
+                                    <span class="badge-tech">Machine Learning Basics</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h5 class="fw-bold text-danger mb-3">Embedded Systems</h5>
+                                <div>
+                                    <span class="badge-tech">Arduino</span>
+                                    <span class="badge-tech">Raspberry Pi</span>
+                                    <span class="badge-tech">Circuit Simulation</span>
+                                    <span class="badge-tech">TinkerCad</span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="my-4">
+                        <div class="text-center">
+                            <h5 class="fw-bold text-dark mb-3">Soft Skills</h5>
+                            <span class="badge bg-secondary me-2">Logical Reasoning</span>
+                            <span class="badge bg-secondary me-2">Problem Solving</span>
+                            <span class="badge bg-secondary me-2">Team Leadership</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Achievements -->
+    <section id="certifications" class="section bg-white">
+        <div class="container">
+            <h2 class="section-title">Certifications &amp; Achievements</h2>
+            <div class="row g-4 mb-4">
+                <div class="col-md-4">
+                    <div class="card cert-card h-100 p-4">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="cert-icon-wrap me-3">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Green Skills and Artificial Intelligence</h6>
+                                <p class="small text-muted mb-1">Edunet Foundation</p>
+                                <p class="small text-secondary mb-0">Certificate of Completion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card cert-card h-100 p-4">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="cert-icon-wrap me-3">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Pyverse &mdash; Application Creation Using Python</h6>
+                                <p class="small text-muted mb-1">Infosys Springboard</p>
+                                <p class="small text-secondary mb-0">Certificate of Completion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card cert-card h-100 p-4">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="cert-icon-wrap me-3">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Software Engineering</h6>
+                                <p class="small text-muted mb-1">Infosys Springboard</p>
+                                <p class="small text-secondary mb-0">Certificate of Completion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card cert-card h-100 p-4">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="cert-icon-wrap me-3">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Open Source Models with Hugging Face</h6>
+                                <p class="small text-muted mb-1">Simplilearn</p>
+                                <p class="small text-secondary mb-0">Certificate of Completion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card cert-card h-100 p-4">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="cert-icon-wrap me-3">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Edith &mdash; AI Agent Buildathon</h6>
+                                <p class="small text-muted mb-1">Technium (SLRTCE)</p>
+                                <p class="small text-secondary mb-0">Certificate of Participation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card cert-card h-100 p-4">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="cert-icon-wrap me-3">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Programming in Python &amp; Python Program 101</h6>
+                                <p class="small text-muted mb-1">Infosys Springboard</p>
+                                <p class="small text-secondary mb-0">Certificate of Completion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card cert-card h-100 p-4">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="cert-icon-wrap me-3">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Python for Beginners &mdash; Variables, Strings &amp; Data Structures</h6>
+                                <p class="small text-muted mb-1">Coursera</p>
+                                <p class="small text-secondary mb-0">Certificate of Completion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card cert-card h-100 p-4">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="cert-icon-wrap me-3">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Dictionaries in Python Programming</h6>
+                                <p class="small text-muted mb-1">Infosys Springboard</p>
+                                <p class="small text-secondary mb-0">Certificate of Completion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card cert-card h-100 p-4">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="cert-icon-wrap me-3">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Co-Head, R&amp;D Cell</h6>
+                                <p class="small text-muted mb-1">Shree L.R. Tiwari College of Engineering</p>
+                                <p class="small text-secondary mb-0">Leading innovation-focused initiatives and mentoring
+                                    teams on research projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card cert-card h-100 p-4">
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="cert-icon-wrap me-3">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Hackathon Participation &amp; Leadership</h6>
+                                <p class="small text-muted mb-1">Innovation &amp; problem-solving events</p>
+                                <p class="small text-secondary mb-0">Acted as team leader for multiple hackathons,
+                                    driving solution design and delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         GITHUB CODING ACTIVITY SHOWCASE
+    ════════════════════════════════════════════════ -->
+    <section id="coding-activity" class="section">
+        <div class="container">
+
+            <h2 class="section-title">Coding Activity</h2>
+
+            <!-- Top row: GitHub profile card + Interactive Skills Globe + Stats -->
+            <div class="row g-4 mb-4 align-items-stretch">
+
+                <!-- GitHub Profile + Globe -->
+                <div class="col-lg-7">
+                    <div class="gh-card h-100">
+                        <div class="gh-card-header">
+                            <i class="fab fa-github gh-icon-header"></i>
+                            <span>GitHub Profile</span>
+                        </div>
+                        <div class="gh-card-body">
+                            <div class="row g-4 align-items-center">
+                                <div class="col-md-6">
+                                    <div class="gh-profile-row mb-3">
+                                        <img src="https://avatars.githubusercontent.com/u/184063744?v=4"
+                                            alt="GitHub Avatar" class="gh-avatar">
+                                        <div>
+                                            <div class="gh-username">Ujjwal Tiwari</div>
+                                            <div class="gh-handle">@Knight6azer</div>
+                                            <div class="gh-bio">"If the truth is cruel then lies must be kind."</div>
+                                        </div>
+                                    </div>
+                                    <div class="gh-meta-list">
+                                        <div class="gh-meta-item"><i class="fab fa-github"></i> 11 Public Repos</div>
+                                        <div class="gh-meta-item"><i class="fas fa-map-marker-alt"></i> Mumbai, India
+                                        </div>
+                                        <div class="gh-meta-item"><i class="fas fa-clock"></i> Joined Oct 2024</div>
+                                        <div class="gh-meta-item"><i class="fas fa-link"></i>
+                                            <a href="https://utpps.vercel.app/" target="_blank"
+                                                style="color:#6ea8fe;">utpps.vercel.app</a>
+                                        </div>
+                                    </div>
+                                    <div class="gh-follow-row mt-2 pt-2">
+                                        <span><i class="fas fa-user-friends me-1"></i> 7 Followers</span>
+                                        <span><i class="fas fa-user-plus me-1"></i> 8 Following</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="skills-globe-wrap">
+                                        <canvas id="skills-globe-canvas"></canvas>
+                                        <p class="globe-label">Interactive Skills Globe</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GitHub Stats Card (live) -->
+                <div class="col-lg-5">
+                    <div class="gh-card h-100 d-flex flex-column">
+                        <div class="gh-card-header">
+                            <i class="fas fa-chart-bar gh-icon-header"></i>
+                            <span>GitHub Statistics</span>
+                        </div>
+                        <div class="gh-card-body flex-grow-1 d-flex align-items-center justify-content-center p-3">
+                            <img src="https://github-readme-stats.vercel.app/api?username=Knight6azer&show_icons=true&theme=transparent&hide_border=true&title_color=6ea8fe&text_color=e8eaed&icon_color=0d6efd&bg_color=00000000&count_private=true&hide=contribs"
+                                alt="GitHub Stats" class="gh-stats-img" loading="lazy">
+                        </div>
+                        <div class="gh-card-body pt-0 d-flex align-items-center justify-content-center">
+                            <img src="https://github-readme-streak-stats.herokuapp.com/?user=Knight6azer&theme=dark&hide_border=true&background=00000000&ring=0d6efd&fire=6ea8fe&currStreakLabel=6ea8fe&sideLabels=9ca3af&dates=6c757d&currStreakNum=ffffff&sideNums=e8eaed"
+                                alt="GitHub Streak" class="gh-stats-img" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom row: Languages donut + Skill bars -->
+            <div class="row g-4">
+
+                <!-- Top Languages by Repo (donut chart) -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="gh-card h-100">
+                        <div class="gh-card-header">
+                            <i class="fas fa-code-branch gh-icon-header"></i>
+                            <span>Top Languages by Repo</span>
+                        </div>
+                        <div class="gh-card-body">
+                            <div class="gh-donut-wrap">
+                                <svg class="gh-donut" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Python 73% -->
+                                    <circle class="gh-donut-ring" cx="18" cy="18" r="15.915" fill="transparent"
+                                        stroke="#1a1a2e" stroke-width="3.5" />
+                                    <circle class="gh-donut-seg" cx="18" cy="18" r="15.915" fill="transparent"
+                                        stroke="#3572A5" stroke-width="3.5" stroke-dasharray="73 27"
+                                        stroke-dashoffset="25" />
+                                    <!-- Jupyter Notebook 9% -->
+                                    <circle class="gh-donut-seg" cx="18" cy="18" r="15.915" fill="transparent"
+                                        stroke="#DA5B0B" stroke-width="3.5" stroke-dasharray="9 91"
+                                        stroke-dashoffset="-48" />
+                                    <!-- TypeScript 9% -->
+                                    <circle class="gh-donut-seg" cx="18" cy="18" r="15.915" fill="transparent"
+                                        stroke="#3178C6" stroke-width="3.5" stroke-dasharray="9 91"
+                                        stroke-dashoffset="-57" />
+                                    <!-- C++ 9% -->
+                                    <circle class="gh-donut-seg" cx="18" cy="18" r="15.915" fill="transparent"
+                                        stroke="#F34B7D" stroke-width="3.5" stroke-dasharray="9 91"
+                                        stroke-dashoffset="-66" />
+                                    <!-- Center text -->
+                                    <text x="18" y="18.5" text-anchor="middle" dominant-baseline="middle" fill="#6ea8fe"
+                                        font-size="4" font-family="Inter,sans-serif" font-weight="bold">11 Repos</text>
+                                </svg>
+                                <div class="gh-legend">
+                                    <div class="gh-legend-item"><span class="gh-legend-dot"
+                                            style="background:#3572A5"></span>Python <span
+                                            class="gh-legend-pct">73%</span></div>
+                                    <div class="gh-legend-item"><span class="gh-legend-dot"
+                                            style="background:#DA5B0B"></span>Jupyter Notebook <span
+                                            class="gh-legend-pct">9%</span></div>
+                                    <div class="gh-legend-item"><span class="gh-legend-dot"
+                                            style="background:#3178C6"></span>TypeScript <span
+                                            class="gh-legend-pct">9%</span></div>
+                                    <div class="gh-legend-item"><span class="gh-legend-dot"
+                                            style="background:#F34B7D"></span>C++ <span class="gh-legend-pct">9%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Most Used Languages (pure CSS — always renders) -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="gh-card h-100">
+                        <div class="gh-card-header">
+                            <i class="fas fa-fire gh-icon-header" style="color:#f97316;"></i>
+                            <span>Most Used Languages</span>
+                        </div>
+                        <div class="gh-card-body">
+                            <!-- Language horizontal bar chart -->
+                            <div class="lang-bars">
+
+                                <div class="lang-bar-item">
+                                    <div class="lang-bar-label">
+                                        <span class="lang-dot" style="background:#3572A5"></span>
+                                        <span class="lang-name">Python</span>
+                                        <span class="lang-pct">72.7%</span>
+                                    </div>
+                                    <div class="lang-bar-track">
+                                        <div class="lang-bar-fill" style="--lw:72.7%;background:#3572A5;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="lang-bar-item">
+                                    <div class="lang-bar-label">
+                                        <span class="lang-dot" style="background:#DA5B0B"></span>
+                                        <span class="lang-name">Jupyter Notebook</span>
+                                        <span class="lang-pct">9.1%</span>
+                                    </div>
+                                    <div class="lang-bar-track">
+                                        <div class="lang-bar-fill" style="--lw:9.1%;background:#DA5B0B;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="lang-bar-item">
+                                    <div class="lang-bar-label">
+                                        <span class="lang-dot" style="background:#3178C6"></span>
+                                        <span class="lang-name">TypeScript</span>
+                                        <span class="lang-pct">9.1%</span>
+                                    </div>
+                                    <div class="lang-bar-track">
+                                        <div class="lang-bar-fill" style="--lw:9.1%;background:#3178C6;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="lang-bar-item">
+                                    <div class="lang-bar-label">
+                                        <span class="lang-dot" style="background:#F34B7D"></span>
+                                        <span class="lang-name">C++</span>
+                                        <span class="lang-pct">9.1%</span>
+                                    </div>
+                                    <div class="lang-bar-track">
+                                        <div class="lang-bar-fill" style="--lw:9.1%;background:#F34B7D;"></div>
+                                    </div>
+                                </div>
+
+                            </div><!-- /lang-bars -->
+
+                            <!-- Stacked colour segment bar -->
+                            <div class="lang-stack mt-4" title="Language distribution">
+                                <div class="lang-stack-seg" style="width:72.7%;background:#3572A5;"
+                                    title="Python 72.7%"></div>
+                                <div class="lang-stack-seg" style="width:9.1%;background:#DA5B0B;" title="Jupyter 9.1%">
+                                </div>
+                                <div class="lang-stack-seg" style="width:9.1%;background:#3178C6;"
+                                    title="TypeScript 9.1%"></div>
+                                <div class="lang-stack-seg" style="width:9.1%;background:#F34B7D;" title="C++ 9.1%">
+                                </div>
+                            </div>
+
+                            <p class="lang-source mt-3">
+                                <i class="fab fa-github me-1"></i>
+                                Based on <a href="https://github.com/Knight6azer" target="_blank"
+                                    style="color:#6ea8fe;">11 public repos</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Proficiency Bars -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="gh-card h-100">
+                        <div class="gh-card-header">
+                            <i class="fas fa-rocket gh-icon-header" style="color:#a78bfa;"></i>
+                            <span>Skill Proficiency</span>
+                        </div>
+                        <div class="gh-card-body">
+                            <div class="skill-bar-list">
+                                <div class="skill-bar-item">
+                                    <div class="skill-bar-label"><span>Python</span><span
+                                            class="skill-bar-pct">90%</span></div>
+                                    <div class="skill-bar-track">
+                                        <div class="skill-bar-fill" style="--w:90%;background:#3572A5;"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar-item">
+                                    <div class="skill-bar-label"><span>Data Science / ML</span><span
+                                            class="skill-bar-pct">80%</span></div>
+                                    <div class="skill-bar-track">
+                                        <div class="skill-bar-fill" style="--w:80%;background:#0d6efd;"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar-item">
+                                    <div class="skill-bar-label"><span>Embedded Systems</span><span
+                                            class="skill-bar-pct">75%</span></div>
+                                    <div class="skill-bar-track">
+                                        <div class="skill-bar-fill" style="--w:75%;background:#F34B7D;"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar-item">
+                                    <div class="skill-bar-label"><span>SQL / Databases</span><span
+                                            class="skill-bar-pct">70%</span></div>
+                                    <div class="skill-bar-track">
+                                        <div class="skill-bar-fill" style="--w:70%;background:#f59e0b;"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar-item">
+                                    <div class="skill-bar-label"><span>IoT / Arduino</span><span
+                                            class="skill-bar-pct">72%</span></div>
+                                    <div class="skill-bar-track">
+                                        <div class="skill-bar-fill" style="--w:72%;background:#10b981;"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar-item">
+                                    <div class="skill-bar-label"><span>Web (Flask / HTML)</span><span
+                                            class="skill-bar-pct">65%</span></div>
+                                    <div class="skill-bar-track">
+                                        <div class="skill-bar-fill" style="--w:65%;background:#a78bfa;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /row -->
+
+            <!-- CTA to GitHub -->
+            <div class="text-center mt-5">
+                <a href="https://github.com/Knight6azer" target="_blank" class="btn btn-hero-primary px-4 py-2">
+                    <i class="fab fa-github me-2"></i>View Full GitHub Profile
+                </a>
+            </div>
+
         </div>
     </section>
 
@@ -1995,9 +2327,56 @@
     <section id="contact" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="card p-4 shadow-lg border-0">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-5">
+                    <div class="d-flex flex-column gap-3 h-100">
+                        <div class="card p-3">
+                            <div class="d-flex align-items-center">
+                                <div class="contact-icon me-3">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-muted small mb-1">Phone</p>
+                                    <p class="mb-0 fw-semibold">+91 8652181562</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-3">
+                            <div class="d-flex align-items-center">
+                                <div class="contact-icon me-3">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-muted small mb-1">Email</p>
+                                    <p class="mb-0 fw-semibold">tiwari.ujjwal10c27@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-3">
+                            <div class="d-flex align-items-center">
+                                <div class="contact-icon me-3">
+                                    <i class="fas fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-muted small mb-1">Location</p>
+                                    <p class="mb-0 fw-semibold">Mumbai, India</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3 mt-2">
+                            <a href="https://github.com/Knight6azer" target="_blank"
+                                class="btn btn-dark flex-fill d-flex align-items-center justify-content-center">
+                                <i class="fab fa-github me-2"></i>GitHub
+                            </a>
+                            <a href="https://www.linkedin.com/in/ujjwal-tiwari-6a55122a7" target="_blank"
+                                class="btn btn-dark flex-fill d-flex align-items-center justify-content-center">
+                                <i class="fab fa-linkedin-in me-2"></i>LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="card p-4 shadow-lg border-0 h-100">
                         <form id="contactForm">
                             <div class="mb-3">
                                 <label class="form-label fw-bold">Full Name</label>
@@ -2010,11 +2389,12 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label fw-bold">Message</label>
-                                <textarea class="form-control" rows="5" id="message" placeholder="Your message here..."
+                                <textarea class="form-control" rows="5" id="message" placeholder="Tell me about your project or opportunity..."
                                     required></textarea>
                             </div>
-                            <button type="submit" id="sendBtn" class="btn btn-primary w-100 py-3 fw-bold">Send
-                                Message</button>
+                            <button type="submit" id="sendBtn" class="btn btn-primary w-100 py-3 fw-bold">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
                         </form>
                         <div id="form-message" class="mt-3"></div>
                     </div>

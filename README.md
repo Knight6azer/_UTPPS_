@@ -20,14 +20,15 @@ A modern, dark-themed portfolio website showcasing the journey of Ujjwal Tiwari 
 
 | # | Section | ID |
 |---|---|---|
-| 1 | Hero / Landing | `#home` |
-| 2 | About Me + Education | `#about` |
-| 3 | GitHub Coding Activity | `#coding-activity` |
-| 4 | Technical Skills | `#skills` |
-| 5 | Professional Experience | `#experience` |
-| 6 | Key Projects | `#projects` |
-| 7 | Certifications & Achievements | *(within page)* |
-| 8 | Contact | `#contact` |
+| 1 | Hero + About | `#about` |
+| 2 | About Details | *(same flow as hero)* |
+| 3 | Education | `#education` |
+| 4 | Professional Experience | `#experience` |
+| 5 | Key Projects | `#projects` |
+| 6 | Technical Skills | `#skills` |
+| 7 | Certifications & Achievements | `#certifications` |
+| 8 | GitHub Coding Activity | `#coding-activity` |
+| 9 | Contact | `#contact` |
 
 ## 🛠 Technology Stack
 
