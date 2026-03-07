@@ -20,8 +20,8 @@ A modern, dark-themed portfolio website showcasing the journey of Ujjwal Tiwari 
 
 | # | Section | ID |
 |---|---|---|
-| 1 | Hero + About | `#about` |
-| 2 | About Details | *(same flow as hero)* |
+| 1 | Hero / Landing | `#home` |
+| 2 | About Me | `#about` |
 | 3 | Education | `#education` |
 | 4 | Professional Experience | `#experience` |
 | 5 | Key Projects | `#projects` |
