@@ -259,15 +259,17 @@
         /* Hero image side */
         .hero-img-col {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 36px;
             position: relative;
         }
 
         .hero-img-wrapper {
             position: relative;
-            width: 340px;
-            height: 340px;
+            width: 280px;
+            height: 280px;
         }
 
         /* Rotating outer ring */
@@ -303,8 +305,8 @@
         .hero-img-wrapper .profile-img {
             position: relative;
             z-index: 2;
-            width: 340px;
-            height: 340px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             object-fit: cover;
             object-position: center top;
@@ -319,11 +321,11 @@
         .hero-badge {
             position: absolute;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(13, 30, 70, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(13, 110, 253, 0.35);
             border-radius: 12px;
-            padding: 10px 16px;
+            padding: 8px 14px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -332,6 +334,7 @@
             font-weight: 600;
             white-space: nowrap;
             animation: float-badge 4s ease-in-out infinite;
+            box-shadow: 0 4px 20px rgba(13, 110, 253, 0.25);
         }
 
         .hero-badge i {
@@ -340,20 +343,20 @@
         }
 
         .hero-badge.badge-top {
-            top: 10px;
-            right: -30px;
+            top: 4px;
+            right: -36px;
             animation-delay: 0s;
         }
 
         .hero-badge.badge-bottom {
-            bottom: 30px;
-            left: -30px;
+            bottom: 20px;
+            left: -40px;
             animation-delay: 1.5s;
         }
 
         .hero-badge.badge-mid {
-            top: 45%;
-            left: -50px;
+            top: 42%;
+            left: -56px;
             animation-delay: 0.8s;
         }
 
@@ -367,6 +370,29 @@
             50% {
                 transform: translateY(-8px);
             }
+        }
+
+        /* ─── 3-D Skills Globe ─────────────────────────── */
+        .skills-globe-wrap {
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+        }
+
+        #skills-globe-canvas {
+            width: 100%;
+            height: 320px;
+            display: block;
+        }
+
+        .globe-label {
+            margin-top: 8px;
+            text-align: center;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #20b2aa;
+            opacity: 0.75;
         }
 
         /* Social icon row */
@@ -1194,8 +1220,10 @@
                     </div>
                 </div>
 
-                <!-- Right: Portrait with Glow -->
+                <!-- Right: Portrait with Glow + Interactive Skills Globe -->
                 <div class="col-lg-6 hero-img-col">
+
+                    <!-- Profile Photo with floating badges -->
                     <div class="hero-img-wrapper">
                         <img src="ujjwal_photo.jpg"
                             onerror="this.src='https://ui-avatars.com/api/?name=Ujjwal+Tiwari&background=0D6EFD&color=fff&size=512'"
@@ -1219,6 +1247,13 @@
                             <span>Data Science</span>
                         </div>
                     </div>
+
+                    <!-- Interactive 3-D Skills Globe -->
+                    <div class="skills-globe-wrap">
+                        <canvas id="skills-globe-canvas"></canvas>
+                        <p class="globe-label">Interactive Skills Globe</p>
+                    </div>
+
                 </div>
 
             </div><!-- end row -->
@@ -2004,6 +2039,181 @@
             <p class="small opacity-50 mb-0">&copy; 2026 Ujjwal Suneel Tiwari. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- 3-D Skills Globe Script -->
+    <script>
+        (function () {
+            const canvas = document.getElementById('skills-globe-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            const skills = [
+                { text: 'TensorFlow', size: 13 },
+                { text: 'NLP', size: 18 },
+                { text: 'Data Science', size: 15 },
+                { text: 'Raspberry Pi', size: 13 },
+                { text: 'Embedded', size: 20 },
+                { text: 'React', size: 14 },
+                { text: 'JavaScript', size: 14 },
+                { text: 'Matplotlib', size: 13 },
+                { text: 'SQL', size: 13 },
+                { text: 'C++', size: 15 },
+                { text: 'Arduino', size: 20 },
+                { text: 'Pandas', size: 13 },
+                { text: 'NumPy', size: 13 },
+                { text: 'IoT', size: 20 },
+                { text: 'Machine Learning', size: 14 },
+                { text: 'Python', size: 17 },
+            ];
+
+            let W, H, cx, cy, R;
+            let mouseX = 0, mouseY = 0;
+            let rotX = 0.006, rotY = 0.009;
+
+            function resize() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                W = canvas.width = rect.width || 400;
+                H = canvas.height = 320;
+                cx = W / 2; cy = H / 2;
+                R = Math.min(W, H) * 0.33;
+            }
+
+            // Distribute skills on sphere surface (Fibonacci sphere)
+            function fibSphere(n) {
+                const pts = [];
+                const golden = Math.PI * (3 - Math.sqrt(5));
+                for (let i = 0; i < n; i++) {
+                    const y = 1 - (i / (n - 1)) * 2;
+                    const r = Math.sqrt(1 - y * y);
+                    const theta = golden * i;
+                    pts.push({ x: Math.cos(theta) * r, y, z: Math.sin(theta) * r });
+                }
+                return pts;
+            }
+
+            const pts3d = fibSphere(skills.length);
+            // Euler rotation state
+            let angleX = 0.35, angleY = 0;
+
+            canvas.addEventListener('mousemove', function (e) {
+                const rect = canvas.getBoundingClientRect();
+                mouseX = ((e.clientX - rect.left) - cx) / cx;
+                mouseY = ((e.clientY - rect.top) - cy) / cy;
+                rotY = mouseX * 0.03;
+                rotX = mouseY * 0.02;
+            });
+            canvas.addEventListener('mouseleave', function () {
+                rotX = 0.005; rotY = 0.009;
+            });
+
+            // Rotate a 3-D point around X then Y
+            function rotate(pt) {
+                // around Y
+                const cosY = Math.cos(angleY), sinY = Math.sin(angleY);
+                const x1 = pt.x * cosY + pt.z * sinY;
+                const z1 = -pt.x * sinY + pt.z * cosY;
+                // around X
+                const cosX = Math.cos(angleX), sinX = Math.sin(angleX);
+                const y2 = pt.y * cosX - z1 * sinX;
+                const z2 = pt.y * sinX + z1 * cosX;
+                return { x: x1, y: y2, z: z2 };
+            }
+
+            // Draw light wireframe globe
+            function drawGlobe() {
+                const segs = 10;
+                ctx.strokeStyle = 'rgba(32, 178, 170, 0.18)';
+                ctx.lineWidth = 0.8;
+                // Latitude lines
+                for (let i = 1; i < segs; i++) {
+                    const lat = (i / segs) * Math.PI - Math.PI / 2;
+                    const r = Math.cos(lat) * R;
+                    const y0 = Math.sin(lat) * R;
+                    ctx.beginPath();
+                    for (let j = 0; j <= 80; j++) {
+                        const lon = (j / 80) * Math.PI * 2;
+                        const raw = { x: Math.cos(lon) * Math.cos(lat), y: Math.sin(lat), z: Math.sin(lon) * Math.cos(lat) };
+                        const rotated = rotate(raw);
+                        const px = cx + rotated.x * R;
+                        const py = cy + rotated.y * R;
+                        if (j === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                    }
+                    ctx.stroke();
+                }
+                // Longitude lines
+                for (let j = 0; j < segs; j++) {
+                    const lon = (j / segs) * Math.PI * 2;
+                    ctx.beginPath();
+                    for (let i = 0; i <= 60; i++) {
+                        const lat = (i / 60) * Math.PI - Math.PI / 2;
+                        const raw = { x: Math.cos(lon) * Math.cos(lat), y: Math.sin(lat), z: Math.sin(lon) * Math.cos(lat) };
+                        const rotated = rotate(raw);
+                        const px = cx + rotated.x * R;
+                        const py = cy + rotated.y * R;
+                        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                    }
+                    ctx.stroke();
+                }
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+                drawGlobe();
+
+                // Compute projected positions
+                const projected = pts3d.map((pt, i) => {
+                    const r = rotate(pt);
+                    return {
+                        px: cx + r.x * R,
+                        py: cy + r.y * R,
+                        z: r.z,
+                        text: skills[i].text,
+                        size: skills[i].size,
+                    };
+                });
+
+                // Sort back-to-front for depth (painter's algorithm)
+                projected.sort((a, b) => a.z - b.z);
+
+                projected.forEach(p => {
+                    const depth = (p.z + 1) / 2;          // 0 (back) → 1 (front)
+                    const alpha = 0.30 + depth * 0.70;
+                    const fSize = (p.size * (0.55 + depth * 0.45)) | 0;
+                    const isFront = depth > 0.5;
+
+                    ctx.font = `${isFront ? 600 : 400} ${fSize}px 'Courier New', monospace`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+
+                    if (isFront) {
+                        // Pill background for prominent skills
+                        const tw = ctx.measureText(p.text).width;
+                        const pad = 6;
+                        const bw = tw + pad * 2, bh = fSize + pad;
+                        const bx = p.px - bw / 2, by = p.py - bh / 2;
+                        ctx.fillStyle = `rgba(10, 25, 60, ${alpha * 0.75})`;
+                        ctx.beginPath();
+                        ctx.roundRect(bx, by, bw, bh, 6);
+                        ctx.fill();
+                        ctx.strokeStyle = `rgba(32,178,170,${alpha * 0.6})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+
+                    ctx.fillStyle = `rgba(32, 178, 170, ${alpha})`;
+                    ctx.fillText(p.text, p.px, p.py);
+                });
+
+                angleX += rotX;
+                angleY += rotY;
+                requestAnimationFrame(draw);
+            }
+
+            window.addEventListener('resize', () => { resize(); });
+            resize();
+            draw();
+        })();
+    </script>
 
     <!-- Bootstrap Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
