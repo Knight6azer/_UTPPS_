@@ -7,8 +7,8 @@ A modern, dark-themed portfolio website showcasing the journey of Ujjwal Tiwari 
 ## ✨ Features
 
 - **Dark Theme**: Full-site near-black aesthetic (`#0a0a0f`) with blue accent glows, matching hero to footer.
-- **Animated Hero**: Typewriter role animation, glowing portrait, floating skill badges, particle dots, and stat counters.
-- **GitHub Coding Activity Section** *(nav: "Coding Activity")*: GitHub stats card, streak widget, SVG donut chart of top languages by repo, animated language bar chart (pure CSS — no external API dependency), and animated skill proficiency bars — all sourced from the Knight6azer GitHub profile (11 public repos).
+- **Animated Hero**: Typewriter role animation, glowing portrait, floating skill badges, particle dots, stat counters, and integrated About Me section with skill boxes.
+- **GitHub Coding Activity Section** *(nav: "Coding Activity")*: GitHub stats card, streak widget, SVG donut chart of top languages by repo, animated language bar chart (pure CSS — no external API dependency), and animated skill proficiency bars — all sourced from the Knight6azer GitHub profile (11 public repos). Features an interactive 3D skills globe on the right side of the profile section.
 - **Technical Skills**: Categorized skill badges for Programming, Data Science, and Embedded Systems.
 - **Professional Experience**: 3 internship cards with colored accent borders.
 - **Project Showcase**: 9 featured projects linking to their GitHub repositories.
@@ -20,15 +20,14 @@ A modern, dark-themed portfolio website showcasing the journey of Ujjwal Tiwari 
 
 | # | Section | ID |
 |---|---|---|
-| 1 | Hero / Landing | `#home` |
-| 2 | About Me | `#about` |
-| 3 | Education | `#education` |
-| 4 | Professional Experience | `#experience` |
-| 5 | Key Projects | `#projects` |
-| 6 | Technical Skills | `#skills` |
-| 7 | Certifications & Achievements | `#certifications` |
-| 8 | GitHub Coding Activity | `#coding-activity` |
-| 9 | Contact | `#contact` |
+| 1 | Hero / Landing (with About Me) | `#home` |
+| 2 | Education | `#education` |
+| 3 | Professional Experience | `#experience` |
+| 4 | Key Projects | `#projects` |
+| 5 | Technical Skills | `#skills` |
+| 6 | Certifications & Achievements | `#certifications` |
+| 7 | GitHub Coding Activity | `#coding-activity` |
+| 8 | Contact | `#contact` |
 
 ## 🛠 Technology Stack
 
