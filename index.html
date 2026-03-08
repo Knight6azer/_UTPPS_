@@ -333,7 +333,8 @@
             align-items: center;
             gap: 36px;
             position: relative;
-            padding-top: 50px; /* to move down a bit */
+            padding-top: 50px;
+            /* to move down a bit */
         }
 
         .hero-img-wrapper {
@@ -1137,10 +1138,11 @@
         /* Profile card elements */
         .gh-profile-row {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: space-between;
             gap: 16px;
-            margin-bottom: 18px;
+            margin-bottom: 0;
+            height: 100%;
         }
 
         .gh-profile-left {
@@ -1148,6 +1150,7 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
+            flex: 1;
         }
 
         .gh-profile-main {
@@ -1159,7 +1162,15 @@
             width: 260px;
         }
 
-        @media (max-width: 767.98px) {
+        .globe-label {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: -10px;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 991.98px) {
             .gh-profile-row {
                 flex-direction: column;
             }
@@ -1202,7 +1213,6 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-bottom: 16px;
         }
 
         .gh-meta-item {
@@ -1224,8 +1234,6 @@
             gap: 20px;
             font-size: 0.82rem;
             color: var(--text-secondary);
-            border-top: 1px solid var(--dark-border);
-            padding-top: 12px;
         }
 
         .gh-follow-row i {
@@ -1546,10 +1554,13 @@
                     <div class="mt-5 pt-4 border-top border-secondary">
                         <h3 class="text-start mb-4" style="color:#dee2e6;">About Me</h3>
                         <p class="lead mb-4" style="color:#dee2e6;">
-                            I am a third year <strong style="color:#dee2e6;">Electronics & Computer Science Engineering</strong> student at Shree L.R. Tiwari College of Engineering (2023-2027).
+                            I am a third year <strong style="color:#dee2e6;">Electronics & Computer Science
+                                Engineering</strong> student at Shree L.R. Tiwari College of Engineering (2023-2027).
                         </p>
                         <p class="text-muted mb-4">
-                            With hands-on experience in Data Analysis, Python, and Embedded Systems, I specialize in creating solutions that matter. I have strong leadership abilities, currently serving as a Co-Head of the R&D Cell, where I lead innovative tech solutions.
+                            With hands-on experience in Data Analysis, Python, and Embedded Systems, I specialize in
+                            creating solutions that matter. I have strong leadership abilities, currently serving as a
+                            Co-Head of the R&D Cell, where I lead innovative tech solutions.
                         </p>
                     </div>
                 </div>
@@ -2161,36 +2172,41 @@
                             <i class="fab fa-github gh-icon-header"></i>
                             <span>Knight6azer</span>
                         </div>
-                        <div class="gh-card-body">
-                            <div class="gh-profile-row">
-                                <div class="gh-profile-left">
-                                    <img src="https://avatars.githubusercontent.com/u/184063744?v=4" alt="GitHub Avatar"
-                                        class="gh-avatar">
-                                    <div class="gh-profile-main">
-                                        <div class="gh-username">Ujjwal Tiwari</div>
-                                        <div class="gh-handle">@Knight6azer</div>
-                                        <div class="gh-bio">"If the truth is cruel then lies must be kind."</div>
+                        <div class="gh-card-body h-100 d-flex flex-column">
+                            <div class="gh-profile-row flex-grow-1">
+                                <div class="gh-profile-left h-100 justify-content-between py-2">
+                                    <div>
+                                        <img src="https://avatars.githubusercontent.com/u/184063744?v=4"
+                                            alt="GitHub Avatar" class="gh-avatar mb-2">
+                                        <div class="gh-profile-main">
+                                            <div class="gh-username">Ujjwal Tiwari</div>
+                                            <div class="gh-handle">@Knight6azer</div>
+                                            <div class="gh-bio">"If the truth is cruel then lies must be kind."</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="gh-meta-list text-start w-100 ps-xl-3 my-3">
+                                        <div class="gh-meta-item"><i class="fab fa-github"></i> 11 Public Repos</div>
+                                        <div class="gh-meta-item"><i class="fas fa-map-marker-alt"></i> Mumbai, India
+                                        </div>
+                                        <div class="gh-meta-item"><i class="fas fa-clock"></i> Joined Oct 2024</div>
+                                        <div class="gh-meta-item"><i class="fas fa-link"></i>
+                                            <a href="https://utpps.vercel.app/" target="_blank"
+                                                style="color:#6ea8fe;">utpps.vercel.app</a>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="gh-follow-row w-100 justify-content-center border-top border-secondary pt-3 mt-auto">
+                                        <span><i class="fas fa-user-friends me-1"></i> 7 Followers</span>
+                                        <span><i class="fas fa-user-plus me-1"></i> 8 Following</span>
                                     </div>
                                 </div>
-                                <div class="skills-globe-wrap d-none d-md-block">
+                                <div class="skills-globe-wrap d-none d-lg-block">
                                     <canvas id="skills-globe-canvas"></canvas>
-                                    <p class="globe-label">Interactive Skills Globe</p>
+                                    <p class="globe-label text-uppercase fw-bold pt-1 letter-spacing-1">Interactive
+                                        Skills Globe</p>
                                 </div>
-                            </div>
-                            <div class="gh-meta-list">
-                                <div class="gh-meta-item"><i class="fab fa-github"></i> 11 Public Repos</div>
-                                <div class="gh-meta-item"><i class="fas fa-map-marker-alt"></i> Mumbai, India
-                                </div>
-                                <div class="gh-meta-item"><i class="fas fa-clock"></i> Joined Oct 2024
-                                </div>
-                                <div class="gh-meta-item"><i class="fas fa-link"></i>
-                                    <a href="https://utpps.vercel.app/" target="_blank"
-                                        style="color:#6ea8fe;">utpps.vercel.app</a>
-                                </div>
-                            </div>
-                            <div class="gh-follow-row">
-                                <span><i class="fas fa-user-friends me-1"></i> 7 Followers</span>
-                                <span><i class="fas fa-user-plus me-1"></i> 8 Following</span>
                             </div>
                         </div>
                     </div>
