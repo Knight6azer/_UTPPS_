@@ -329,10 +329,11 @@
         .hero-img-col {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             gap: 36px;
             position: relative;
+            padding-top: 50px; /* to move down a bit */
         }
 
         .hero-img-wrapper {
@@ -1137,16 +1138,25 @@
         .gh-profile-row {
             display: flex;
             align-items: flex-start;
+            justify-content: space-between;
             gap: 16px;
             margin-bottom: 18px;
         }
 
+        .gh-profile-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
         .gh-profile-main {
-            flex: 1;
+            text-align: center;
         }
 
         .gh-profile-row .skills-globe-wrap {
-            max-width: 260px;
+            flex-shrink: 0;
+            width: 260px;
         }
 
         @media (max-width: 767.98px) {
@@ -1424,46 +1434,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto fw-medium align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-numbered" href="#education">
-                            <span class="nav-index">01.</span>
-                            <span class="nav-label">Education</span>
-                        </a>
+                        <a class="nav-link" href="#education">Education</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-numbered" href="#experience">
-                            <span class="nav-index">02.</span>
-                            <span class="nav-label">Experience</span>
-                        </a>
+                        <a class="nav-link" href="#experience">Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-numbered" href="#projects">
-                            <span class="nav-index">03.</span>
-                            <span class="nav-label">Projects</span>
-                        </a>
+                        <a class="nav-link" href="#projects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-numbered" href="#skills">
-                            <span class="nav-index">04.</span>
-                            <span class="nav-label">Skills</span>
-                        </a>
+                        <a class="nav-link" href="#skills">Skills</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-numbered" href="#certifications">
-                            <span class="nav-index">05.</span>
-                            <span class="nav-label">Certifications</span>
-                        </a>
+                        <a class="nav-link" href="#certifications">Certifications</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-numbered" href="#coding-activity">
-                            <span class="nav-index">06.</span>
-                            <span class="nav-label">Coding</span>
-                        </a>
+                        <a class="nav-link" href="#coding-activity">Coding</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-numbered" href="#contact">
-                            <span class="nav-index">07.</span>
-                            <span class="nav-label">Contact</span>
-                        </a>
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item ms-lg-3">
                         <a class="btn btn-hero-primary nav-resume-btn" href="Ujjwal_Tiwari_Resume.pdf" target="_blank"
@@ -1562,36 +1551,6 @@
                         <p class="text-muted mb-4">
                             With hands-on experience in Data Analysis, Python, and Embedded Systems, I specialize in creating solutions that matter. I have strong leadership abilities, currently serving as a Co-Head of the R&D Cell, where I lead innovative tech solutions.
                         </p>
-                        <div class="row g-3">
-                            <div class="col-6">
-                                <div class="p-4 border rounded-4 text-center bg-light h-100">
-                                    <i class="fas fa-code fa-2x text-primary mb-3"></i>
-                                    <h5 class="fw-bold">Development</h5>
-                                    <p class="small text-muted mb-0">Python, C, C++, SQL</p>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="p-4 border rounded-4 text-center bg-light h-100">
-                                    <i class="fas fa-chart-bar fa-2x text-success mb-3"></i>
-                                    <h5 class="fw-bold">Data Science</h5>
-                                    <p class="small text-muted mb-0">Pandas, NumPy, Matplotlib</p>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="p-4 border rounded-4 text-center bg-light h-100">
-                                    <i class="fas fa-microchip fa-2x text-warning mb-3"></i>
-                                    <h5 class="fw-bold">Embedded</h5>
-                                    <p class="small text-muted mb-0">Arduino, RPi, IoT</p>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="p-4 border rounded-4 text-center bg-light h-100">
-                                    <i class="fas fa-users fa-2x text-info mb-3"></i>
-                                    <h5 class="fw-bold">Leadership</h5>
-                                    <p class="small text-muted mb-0">Team Management, R&D Cell</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -1620,6 +1579,38 @@
                         <div class="hero-badge badge-bottom">
                             <i class="fas fa-chart-bar"></i>
                             <span>Data Science</span>
+                        </div>
+                    </div>
+
+                    <!-- About Me Boxes -->
+                    <div class="row g-3 mt-4">
+                        <div class="col-6">
+                            <div class="p-4 border rounded-4 text-center bg-light h-100">
+                                <i class="fas fa-code fa-2x text-primary mb-3"></i>
+                                <h5 class="fw-bold">Development</h5>
+                                <p class="small text-muted mb-0">Python, C, C++, SQL</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 border rounded-4 text-center bg-light h-100">
+                                <i class="fas fa-chart-bar fa-2x text-success mb-3"></i>
+                                <h5 class="fw-bold">Data Science</h5>
+                                <p class="small text-muted mb-0">Pandas, NumPy, Matplotlib</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 border rounded-4 text-center bg-light h-100">
+                                <i class="fas fa-microchip fa-2x text-warning mb-3"></i>
+                                <h5 class="fw-bold">Embedded</h5>
+                                <p class="small text-muted mb-0">Arduino, RPi, IoT</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 border rounded-4 text-center bg-light h-100">
+                                <i class="fas fa-users fa-2x text-info mb-3"></i>
+                                <h5 class="fw-bold">Leadership</h5>
+                                <p class="small text-muted mb-0">Team Management, R&D Cell</p>
+                            </div>
                         </div>
                     </div>
 
@@ -1696,12 +1687,14 @@
                         </div>
                         <div class="gh-card-body">
                             <div class="gh-profile-row">
-                                <img src="https://avatars.githubusercontent.com/u/184063744?v=4" alt="GitHub Avatar"
-                                    class="gh-avatar">
-                                <div class="gh-profile-main">
-                                    <div class="gh-username">Ujjwal Tiwari</div>
-                                    <div class="gh-handle">@Knight6azer</div>
-                                    <div class="gh-bio">"If the truth is cruel then lies must be kind."</div>
+                                <div class="gh-profile-left">
+                                    <img src="https://avatars.githubusercontent.com/u/184063744?v=4" alt="GitHub Avatar"
+                                        class="gh-avatar">
+                                    <div class="gh-profile-main">
+                                        <div class="gh-username">Ujjwal Tiwari</div>
+                                        <div class="gh-handle">@Knight6azer</div>
+                                        <div class="gh-bio">"If the truth is cruel then lies must be kind."</div>
+                                    </div>
                                 </div>
                                 <div class="skills-globe-wrap d-none d-md-block">
                                     <canvas id="skills-globe-canvas"></canvas>
