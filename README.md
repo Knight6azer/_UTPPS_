@@ -1,6 +1,6 @@
 # Ujjwal Tiwari — Personal Portfolio
 
-A modern, dark-themed portfolio website showcasing the journey of Ujjwal Tiwari as an Electronics & Computer Science Engineer and aspiring Data Scientist.
+A modern, dark-themed portfolio website showcasing the journey of Ujjwal Tiwari as an Electronics & Computer Science Engineer and aspiring Data Scientist. The repository currently hosts the static site along with a collection of digital certificates used in the **Certifications & Achievements** section.
 
 🔗 **Live:** [utpps.vercel.app](https://utpps.vercel.app/)
 
@@ -44,7 +44,7 @@ A modern, dark-themed portfolio website showcasing the journey of Ujjwal Tiwari 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/Knight6azer/PPSlite.git
+   git clone https://github.com/Knight6azer/_UTPPS_.git
    ```
 2. **Open `index.html`** directly in your browser — no build step required.
 
