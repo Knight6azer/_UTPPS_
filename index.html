@@ -22,16 +22,19 @@
 
     <style>
         :root {
-            --primary-blue: #0d6efd;
-            --primary-blue-dim: rgba(13, 110, 253, 0.15);
-            --dark-bg: #0a0a0f;
-            --dark-surface: #0f0f18;
-            --dark-card: #13131f;
-            --dark-card-hover: #191926;
-            --dark-border: rgba(255, 255, 255, 0.07);
-            --text-primary: #e8eaed;
-            --text-secondary: #9ca3af;
-            --text-muted: #6c757d;
+            --primary-blue: #3b82f6;
+            --primary-blue-dim: rgba(59, 130, 246, 0.1);
+            --secondary-cyan: #06b6d4;
+            --dark-bg: #030712;
+            --dark-surface: #0b1120;
+            --dark-card: rgba(30, 41, 59, 0.7);
+            --dark-card-hover: rgba(30, 41, 59, 0.9);
+            --dark-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --glass-bg: rgba(15, 23, 42, 0.8);
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
         }
 
         /* ─── Base ──────────────────────────────────── */
@@ -43,7 +46,22 @@
         }
 
         .section {
-            padding: 72px 0;
+            padding: 100px 0;
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--dark-border);
+            border-radius: 20px;
+        }
+
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* ─── Navbar ─────────────────────────────────── */
@@ -623,12 +641,19 @@
             }
 
             to {
-                opacity: 1;
+            opacity: 1;
                 transform: translateY(0);
             }
         }
 
         /* Existing profile-img for other sections (keep default) */
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         .profile-img-default {
             width: 220px;
             height: 220px;
@@ -640,17 +665,29 @@
 
         /* ─── Cards ─────────────────────────────────── */
         .card {
-            border: 1px solid var(--dark-border);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            height: 100%;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
             background: var(--dark-card);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--dark-border);
+            border-radius: 20px;
+            padding: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            overflow: hidden;
+            position: relative;
             color: var(--text-primary);
         }
 
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
         .card:hover {
-            transform: translateY(-6px);
             box-shadow: 0 12px 40px rgba(13, 110, 253, 0.15);
             border-color: rgba(13, 110, 253, 0.3);
             background: var(--dark-card-hover);
@@ -665,7 +702,17 @@
             color: var(--text-secondary) !important;
         }
 
-        /* ─── Section titles ─────────────────────────── */
+        /* ─── Scroll Animations ─────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
         .section-title {
             font-weight: 800;
             margin-bottom: 40px;
@@ -1547,7 +1594,7 @@
                     <!-- Stats Row -->
                     <div class="hero-stats mb-4">
                         <div class="hero-stat-item">
-                            <span class="hero-stat-number">10<span>+</span></span>
+                            <span class="hero-stat-number">12<span>+</span></span>
                             <span class="hero-stat-label">Projects</span>
                         </div>
                         <div class="hero-stat-divider"></div>
@@ -1628,7 +1675,7 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="section">
+    <section id="education" class="section reveal">
         <div class="container">
             <h2 class="section-title">Education</h2>
             <div class="row g-4 align-items-stretch">
@@ -1666,7 +1713,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="section" style="background: var(--dark-surface);">
+    <section id="experience" class="section reveal" style="background: var(--dark-surface);">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
             <div class="row justify-content-center">
@@ -1734,18 +1781,87 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
+    <section id="projects" class="section reveal">
         <div class="container">
             <h2 class="section-title">Key Projects</h2>
             <div class="row g-4">
 
-                <!-- Project: MediCore -->
+                <!-- Project 1: Quirky_Dweed -->
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h5 class="card-title fw-bold m-0">MediCore</h5>
-                                <i class="fas fa-heart-pulse fa-2x text-primary"></i>
+                                <h5 class="card-title fw-bold m-0">Quirky_Dweed</h5>
+                                <i class="fas fa-ghost fa-2x text-info"></i>
+                            </div>
+                            <p class="card-text text-muted">A social media platform for quirky content, featuring interactive user engagement and unique content sharing.</p>
+                            <div class="mt-3">
+                                <span class="badge-tech">Python</span>
+                                <span class="badge-tech">Django</span>
+                                <span class="badge-tech">JavaScript</span>
+                                <span class="badge-tech">Web</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-4">
+                            <a href="https://github.com/Knight6azer/Quirky_Dweed" target="_blank"
+                                class="btn btn-outline-info btn-sm w-100">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: CRM Voice Agent -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title fw-bold m-0">CRM Voice Agent</h5>
+                                <i class="fas fa-microphone-lines fa-2x text-primary"></i>
+                            </div>
+                            <p class="card-text text-muted">AI-powered voice assistant for CRM systems, enabling voice-driven data entry and customer interaction.</p>
+                            <div class="mt-3">
+                                <span class="badge-tech">Python</span>
+                                <span class="badge-tech">OpenAI</span>
+                                <span class="badge-tech">NLP</span>
+                                <span class="badge-tech">Speech</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-4">
+                            <a href="https://github.com/Knight6azer/CRM-Voice-Agent" target="_blank"
+                                class="btn btn-outline-primary btn-sm w-100">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Krishi_Kaar -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title fw-bold m-0">Krishi_Kaar</h5>
+                                <i class="fas fa-seedling fa-2x text-success"></i>
+                            </div>
+                            <p class="card-text text-muted">A smart agricultural assistant platform helping farmers with crop recommendations and market insights using AI.</p>
+                            <div class="mt-3">
+                                <span class="badge-tech">Python</span>
+                                <span class="badge-tech">AI/ML</span>
+                                <span class="badge-tech">Agriculture</span>
+                                <span class="badge-tech">IoT</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-4">
+                            <a href="https://github.com/Knight6azer/Krishi_Kaar" target="_blank"
+                                class="btn btn-outline-success btn-sm w-100">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Medicore -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title fw-bold m-0">Medicore</h5>
+                                <i class="fas fa-heart-pulse fa-2x text-danger"></i>
                             </div>
                             <p class="card-text text-muted">AI-powered healthcare dashboard featuring a clinic management system with real-time analytics and symptom checker.</p>
                             <div class="mt-3">
@@ -1757,35 +1873,12 @@
                         </div>
                         <div class="card-footer bg-transparent border-0 pb-4">
                             <a href="https://github.com/Knight6azer/MediCore" target="_blank"
-                                class="btn btn-outline-primary btn-sm w-100">View Project</a>
+                                class="btn btn-outline-danger btn-sm w-100">View Project</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 1: Krishi Kaar -->
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h5 class="card-title fw-bold m-0">Krishi Kaar</h5>
-                                <i class="fas fa-seedling fa-2x text-success"></i>
-                            </div>
-                            <p class="card-text text-muted">An agricultural assistant platform designed to help farmers
-                                with crop recommendations and market insights using AI.</p>
-                            <div class="mt-3">
-                                <span class="badge-tech">Python</span>
-                                <span class="badge-tech">AI/ML</span>
-                                <span class="badge-tech">Agriculture</span>
-                            </div>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pb-4">
-                            <a href="https://github.com/Knight6azer/Krishi_Kaar" target="_blank"
-                                class="btn btn-outline-success btn-sm w-100">View Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Business Insights Analytics -->
+                <!-- Project 5: Business Insights Analytics -->
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
@@ -1793,13 +1886,12 @@
                                 <h5 class="card-title fw-bold m-0">Business Insights Analytics</h5>
                                 <i class="fas fa-chart-line fa-2x text-primary"></i>
                             </div>
-                            <p class="card-text text-muted">Predictive analysis tool for business decisions using AI,
-                                CRM insights, and interactive dashboards.</p>
+                            <p class="card-text text-muted">Predictive analysis tool for business decisions using AI, CRM insights, and dynamic interactive dashboards.</p>
                             <div class="mt-3">
                                 <span class="badge-tech">Python</span>
                                 <span class="badge-tech">Pandas</span>
-                                <span class="badge-tech">Matplotlib</span>
                                 <span class="badge-tech">Seaborn</span>
+                                <span class="badge-tech">Data Science</span>
                             </div>
                         </div>
                         <div class="card-footer bg-transparent border-0 pb-4">
@@ -1809,16 +1901,15 @@
                     </div>
                 </div>
 
-                <!-- Project 3: Fake News Detector -->
+                <!-- Project 6: Fake News Detector -->
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <h5 class="card-title fw-bold m-0">Fake News Detector</h5>
-                                <i class="fas fa-newspaper fa-2x text-danger"></i>
+                                <i class="fas fa-newspaper fa-2x text-warning"></i>
                             </div>
-                            <p class="card-text text-muted">NLP-powered web app that classifies news articles as real or
-                                fake with confidence scores and word highlights.</p>
+                            <p class="card-text text-muted">NLP-powered web app that classifies news articles as real or fake with confidence scores and word highlights.</p>
                             <div class="mt-3">
                                 <span class="badge-tech">Python</span>
                                 <span class="badge-tech">NLP</span>
@@ -1828,12 +1919,12 @@
                         </div>
                         <div class="card-footer bg-transparent border-0 pb-4">
                             <a href="https://github.com/Knight6azer/Fake-News-Detector" target="_blank"
-                                class="btn btn-outline-danger btn-sm w-100">View Project</a>
+                                class="btn btn-outline-warning btn-sm w-100">View Project</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 4: Emotional Wellbeing Recommender Model -->
+                <!-- Project 7: Emotional Wellbeing Recommender -->
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
@@ -1841,13 +1932,12 @@
                                 <h5 class="card-title fw-bold m-0">Emotional Wellbeing Recommender</h5>
                                 <i class="fas fa-heart fa-2x text-danger"></i>
                             </div>
-                            <p class="card-text text-muted">AI/ML-based recommendation model for emotional wellness,
-                                mental health support, and activity suggestions.</p>
+                            <p class="card-text text-muted">AI/ML-based recommendation model for emotional wellness, mental health support, and activity suggestions.</p>
                             <div class="mt-3">
                                 <span class="badge-tech">Python</span>
                                 <span class="badge-tech">AI/ML</span>
                                 <span class="badge-tech">NLP</span>
-                                <span class="badge-tech">Recommendations</span>
+                                <span class="badge-tech">Health</span>
                             </div>
                         </div>
                         <div class="card-footer bg-transparent border-0 pb-4">
@@ -1857,31 +1947,30 @@
                     </div>
                 </div>
 
-                <!-- Project 5: Vegetable Vendor App -->
+                <!-- Project 8: Acid Rain Analysis Model -->
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h5 class="card-title fw-bold m-0">Vegetable Vendor App</h5>
-                                <i class="fas fa-shopping-basket fa-2x text-success"></i>
+                                <h5 class="card-title fw-bold m-0">Acid Rain Analysis Model</h5>
+                                <i class="fas fa-cloud-rain fa-2x text-secondary"></i>
                             </div>
-                            <p class="card-text text-muted">Ordering and billing system for vegetable vendors using
-                                Python with JSON-based data persistence and inventory tracking.</p>
+                            <p class="card-text text-muted">Environmental data analysis model to detect and predict acid rain patterns using sensor data and ML algorithms.</p>
                             <div class="mt-3">
                                 <span class="badge-tech">Python</span>
-                                <span class="badge-tech">JSON</span>
-                                <span class="badge-tech">Billing</span>
-                                <span class="badge-tech">Inventory</span>
+                                <span class="badge-tech">ML</span>
+                                <span class="badge-tech">Data Science</span>
+                                <span class="badge-tech">Eco</span>
                             </div>
                         </div>
                         <div class="card-footer bg-transparent border-0 pb-4">
-                            <a href="https://github.com/Knight6azer/Vegetable_Vendor_App" target="_blank"
-                                class="btn btn-outline-success btn-sm w-100">View Project</a>
+                            <a href="https://github.com/Knight6azer/Acid-Rain-Analysis-Model" target="_blank"
+                                class="btn btn-outline-secondary btn-sm w-100">View Project</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 6: Schedule Manager -->
+                <!-- Project 9: Schedule Manager -->
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
@@ -1889,12 +1978,11 @@
                                 <h5 class="card-title fw-bold m-0">Schedule Manager</h5>
                                 <i class="fas fa-calendar-alt fa-2x text-info"></i>
                             </div>
-                            <p class="card-text text-muted">Full-featured task and schedule management web application
-                                with authentication, deadline tracking, and productivity analytics.</p>
+                            <p class="card-text text-muted">Full-featured task management web application with authentication, deadline tracking, and productivity analytics.</p>
                             <div class="mt-3">
                                 <span class="badge-tech">Python</span>
                                 <span class="badge-tech">Flask</span>
-                                <span class="badge-tech">SQLAlchemy</span>
+                                <span class="badge-tech">PostgreSQL</span>
                                 <span class="badge-tech">Web</span>
                             </div>
                         </div>
@@ -1905,31 +1993,7 @@
                     </div>
                 </div>
 
-                <!-- Project 7: Acid Rain Analysis Model -->
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h5 class="card-title fw-bold m-0">Acid Rain Analysis Model</h5>
-                                <i class="fas fa-cloud-rain fa-2x text-secondary"></i>
-                            </div>
-                            <p class="card-text text-muted">Environmental data analysis model to detect and predict acid
-                                rain patterns using sensor data and machine learning algorithms.</p>
-                            <div class="mt-3">
-                                <span class="badge-tech">Python</span>
-                                <span class="badge-tech">Data Analysis</span>
-                                <span class="badge-tech">ML</span>
-                                <span class="badge-tech">Environment</span>
-                            </div>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pb-4">
-                            <a href="https://github.com/Knight6azer/Acid-Rain-Analysis-Model" target="_blank"
-                                class="btn btn-outline-secondary btn-sm w-100">View Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 8: Smart Home Security System -->
+                <!-- Project 10: Smart Home Security System -->
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
@@ -1937,13 +2001,12 @@
                                 <h5 class="card-title fw-bold m-0">Smart Home Security System</h5>
                                 <i class="fas fa-shield-alt fa-2x text-dark"></i>
                             </div>
-                            <p class="card-text text-muted">IoT-based security system using Arduino, various sensors,
-                                and a Telegram bot for real-time home safety alerts.</p>
+                            <p class="card-text text-muted">IoT-based security system using Arduino, various sensors, and a Telegram bot for real-time safety alerts.</p>
                             <div class="mt-3">
                                 <span class="badge-tech">Arduino</span>
                                 <span class="badge-tech">IoT</span>
-                                <span class="badge-tech">Python</span>
-                                <span class="badge-tech">Telegram Bot</span>
+                                <span class="badge-tech">Esp32</span>
+                                <span class="badge-tech">Embedded</span>
                             </div>
                         </div>
                         <div class="card-footer bg-transparent border-0 pb-4">
@@ -1953,7 +2016,30 @@
                     </div>
                 </div>
 
-                <!-- Project 9: Temperature Humidity Analysis -->
+                <!-- Project 11: Vegetable Vendor App -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title fw-bold m-0">Vegetable Vendor App</h5>
+                                <i class="fas fa-shopping-basket fa-2x text-success"></i>
+                            </div>
+                            <p class="card-text text-muted">Ordering and billing system for vegetable vendors using Python with JSON-based data persistence.</p>
+                            <div class="mt-3">
+                                <span class="badge-tech">Python</span>
+                                <span class="badge-tech">JSON</span>
+                                <span class="badge-tech">Billing</span>
+                                <span class="badge-tech">Scale</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-4">
+                            <a href="https://github.com/Knight6azer/Vegetable_Vendor_App" target="_blank"
+                                class="btn btn-outline-success btn-sm w-100">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 12: Temperature Humidity Analysis -->
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
@@ -1961,8 +2047,7 @@
                                 <h5 class="card-title fw-bold m-0">Temperature Humidity Analysis</h5>
                                 <i class="fas fa-thermometer-half fa-2x text-warning"></i>
                             </div>
-                            <p class="card-text text-muted">Analysis of environmental temperature and humidity data
-                                collected via IoT sensors with Python visualizations.</p>
+                            <p class="card-text text-muted">Analysis of environmental temperature and humidity data collected via IoT sensors with Python visualizations.</p>
                             <div class="mt-3">
                                 <span class="badge-tech">Python</span>
                                 <span class="badge-tech">IoT</span>
@@ -1988,7 +2073,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section" style="background: var(--dark-surface);">
+    <section id="skills" class="section reveal" style="background: var(--dark-surface);">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
             <div class="row justify-content-center">
@@ -2038,7 +2123,7 @@
     </section>
 
     <!-- Certifications & Achievements -->
-    <section id="certifications" class="section">
+    <section id="certifications" class="section reveal">
         <div class="container">
             <h2 class="section-title">Certifications &amp; Achievements</h2>
             <div class="row g-4">
@@ -2190,7 +2275,7 @@
     <!-- ═══════════════════════════════════════════════
          GITHUB CODING ACTIVITY SHOWCASE
     ════════════════════════════════════════════════ -->
-    <section id="coding-activity" class="section" style="background: var(--dark-surface);">
+    <section id="coding-activity" class="section reveal" style="background: var(--dark-surface);">
         <div class="container">
 
             <h2 class="section-title">Coding Activity</h2>
@@ -2459,7 +2544,7 @@
     </section>
 
     <!-- Resume Section -->
-    <section id="resume" class="section">
+    <section id="resume" class="section reveal">
         <div class="container text-center">
             <h2 class="section-title">My Resume</h2>
             <div class="row justify-content-center">
@@ -2480,7 +2565,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="section reveal">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="row g-4 align-items-stretch">
@@ -2819,6 +2904,24 @@
             }
             setTimeout(type, 800);
         })();
+    </script>
+
+    <!-- Scroll Reveal Animation JS -->
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Initial check
+        reveal();
     </script>
 </body>
 
