@@ -6,13 +6,15 @@ A modern, dark-themed portfolio website showcasing the journey of Ujjwal Tiwari 
 
 ## ✨ Features
 
-- **Dark Theme**: Full-site near-black aesthetic (`#0a0a0f`) with blue accent glows, matching hero to footer.
-- **Animated Hero**: Typewriter role animation, glowing portrait, floating skill badges, particle dots, stat counters, and integrated About Me section with skill boxes.
-- **GitHub Coding Activity Section** *(nav: "Coding Activity")*: GitHub stats card, streak widget, SVG donut chart of top languages by repo, animated language bar chart (pure CSS — no external API dependency), and animated skill proficiency bars — all sourced from the Knight6azer GitHub profile (11 public repos). Features an interactive 3D skills globe on the right side of the profile section.
+- **Dark Theme**: Full-site near-black aesthetic (`#030712`) with blue and cyan accent glows.
+- **Animated Hero**: Typewriter role animation, glowing portrait, floating skill badges, and moving background dots.
+- **Aesthetic Enhancements**: Glassmorphism effects on cards and navigation, refined color palette, and premium typography.
+- **Scroll-Reveal Animations**: Sections smoothly fade and slide into view as the user scrolls.
+- **GitHub Coding Activity Section** *(nav: "Coding Activity")*: GitHub stats card, streak widget, interactive 3D skills globe, and animated proficiency bars.
 - **Technical Skills**: Categorized skill badges for Programming, Data Science, and Embedded Systems.
-- **Professional Experience**: 3 internship cards with colored accent borders.
-- **Project Showcase**: 9 featured projects linking to their GitHub repositories.
-- **Certifications & Achievements**: 10 clickable certifications linking to their actual completion certificates and key leadership awards.
+- **Professional Experience**: Interactive internship timeline with temporal pills.
+- **Project Showcase**: 12 featured projects linking to their GitHub repositories, featuring custom icons and tech tags.
+- **Certifications & Achievements**: 10 clickable certifications linking to their actual completion certificates.
 - **My Resume**: A dedicated resume download section seamlessly integrated with the site's dark theme.
 - **Contact Form**: Integrated with **EmailJS** for direct messaging.
 - **Fully Responsive**: Bootstrap 5 grid, `clamp()` typography, mobile-friendly navbar.
